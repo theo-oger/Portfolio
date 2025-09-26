@@ -1,5 +1,5 @@
 // Fonction pour l'effet de déchiffrement
-function decryptText(element, speed = 80) {
+function decryptText(element, speed = 50) {
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:',.<>/?";
     const originalText = element.textContent;
     let iterations = 0;
@@ -25,6 +25,6 @@ function decryptText(element, speed = 80) {
 // Applique l'effet au chargement de la page
 window.addEventListener('DOMContentLoaded', () => {
     const textElement = document.getElementById('decrypted-text');
-    if (textElement) decryptText(textElement, 50);
+    if (textElement) decryptText(textElement, 40);
 });
 
