@@ -38,6 +38,7 @@ nav ul li a {
 
 nav ul li a:hover {
     color: #86BBD8;
+    font-weight:bold;
 }
 
 main {
@@ -51,7 +52,7 @@ main {
 
 main h2 {
     font-weight: normal;
-    font-family: 'Fira code';
+    font-family: "fira code";
     font-size: 30px;
     margin-bottom: 0; 
 }
