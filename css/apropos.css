@@ -1,19 +1,18 @@
 /* ======= Fond global ======= */
 body {
-  margin: 0;
-  background: linear-gradient(135deg, #0f1115 0%, #1a1c23 100%);
-  color: #f2f2f2;
-  font-family: "Segoe UI", Arial, sans-serif;
-  line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #1F1F1F;
+    color: white;
+    font-family: "Courier New", monospace;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
-/* ======= Header ======= */
+
 header {
-  background: rgba(15, 17, 21, 0.95);
-  border-bottom: 2px solid #5ec4ff;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+    padding: 20px;
 }
 
 nav ul {
@@ -38,6 +37,7 @@ nav ul li a {
 nav ul li a:hover {
     color: #86BBD8;
 }
+
 /* === Section BTS SIO === */
 .filiere {
   margin: 60px auto;
@@ -106,7 +106,8 @@ h2 {
   font-size: 1.8em;
   margin-bottom: 25px;
   color: #5ec4ff;
-  text-align: center;
+   text-align: center;
+
 }
 
 /* ======= Présentation ======= */
@@ -115,11 +116,13 @@ h2 {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  
   gap: 30px;
 }
 
 .presentation .text {
   flex: 1;
+  
   min-width: 280px;
 }
 
