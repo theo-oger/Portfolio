@@ -1,0 +1,120 @@
+/* === HEADER NAVIGATION (ton code existant) === */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 20px;
+    background: #111;
+  }
+  
+  nav ul li {
+    margin-left: 20px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #ccc;
+    font-size: 14px;
+    transition: color 0.3s;
+  }
+  
+  nav ul li a:hover {
+    color: #86BBD8;
+  }
+  
+  body {
+    background-color: #111;
+    color: #eee;
+    font-family: "Courier New", monospace;
+    margin: 0;
+    padding: 0;
+  }
+  
+  section {
+    padding: 40px 10%;
+  }
+  
+  h2 {
+    color: #2ca7ff;
+    margin-bottom: 20px;
+  }
+  
+  /* Présentation */
+  .presentation {
+    display: grid;
+    grid-template-columns: 1fr 200px 1fr;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .presentation img {
+    width: 200px;
+    height: 200px;
+    border: 2px solid #ff4f4f;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  .cv-button {
+    display: inline-block;
+    background: #ffcc00;
+    color: #111;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-decoration: none;
+  }
+  
+  /* Certifications */
+  .certifications {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .certifications img {
+    width: 150px;
+    height: 150px;
+    border-radius: 12px;
+    border: 2px solid #2ca7ff;
+    object-fit: cover;
+  }
+  
+  /* Parcours */
+  .parcours {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .parcours .card {
+    flex: 1;
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid;
+    min-height: 200px;
+  }
+  
+  .card.red { border-color: #ff4f4f; }
+  .card.blue { border-color: #2ca7ff; }
+  .card.yellow { border-color: #ffcc00; }
+  
+  /* Compétences */
+  .competences {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .competences img {
+    width: 120px;
+    height: 120px;
+    border-radius: 12px;
+    border: 2px solid #ff4f4f;
+    object-fit: cover;
+  }
+  
