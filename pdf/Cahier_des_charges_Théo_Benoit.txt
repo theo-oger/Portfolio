@@ -1,0 +1,75 @@
+Le domaine de gestion:
+	-Blog interactif 
+		-Création de fil
+		-Fermeture de fil (Par créateur ou ADMIN)
+		-Envoyer des messages
+			-Système de réponses
+			-like/dislike
+		-Création compte (Base de donnée)
+			-Nom d'utilisateur (règle)
+			-Mot de passes (règle)
+			-Adresse mail (optionnel)
+			-Age
+			-Choix du starter (Bulbizarre, Salamèche, Carapuce)
+		-Système d'expérience (Nombre de point évoluant si contribution)
+		-Système d'évolution avatar (Evolution des Pokémons)
+		-Page de profil (visualisation du Pokémons)
+			Modification du compte (Optionnel)
+		
+				
+ 	-Documentation Pokémons
+		-Barre de recherche prédictive
+		-Information Pokémons recherché
+		-Liste 151 Pokémon (image cliquable) (Optionnel)
+
+
+
+Utilisateurs:
+	-Toute personne de 15 ans ou plus
+
+
+
+Les besoins des utilisateurs:
+	-S'informer sur les Pokémons
+	-Partager (Photo, message, expérience, anecdote) ----------> Toute informations liés à Pokémons 
+	-Echanger (Message, expérience) ----------> Toute informations liés à Pokémons 
+	-Questionner (Information jeux de cartes, jeux vidéo, Théorie) ----------> Toute informations liés à Pokémons
+	-S'amuser (Faire évoluer son Pokémons, partager sa passion)
+	
+
+
+Les fonctionnalités répondant aux besoins:
+	-Création de fil (variée)
+	-Fermeture de fil
+	-Envoyer des messages
+		-Système de réponses
+		-like/dislike
+	-Système de réponses
+	-like/dislike
+	-Choix du starter
+	-Système d'expérience
+	-Option expérience
+	-Système d'évolution avatar
+	-Choix du starter (Bulbizarre, Salamèche, Carapuce)
+		-Système d'expérience
+	-Option expérience
+		-Système d'évolution avatar (Evolution des Pokémons)
+	-Page de profil (visualisation du Pokémons)
+
+
+
+
+Règles de gestions:
+	-Nom d'utilisateurs pas vide, contenant 3 caractère (au moins 1 caractère alphanumérique)
+	-Mot de passe contenant 8 caractères (1 majuscule, 1 chiffre, 1 caractère spécial)
+	-Age (supérieur à 15 ans)
+	-Suppression de fil pas son hôte ou Administrateur
+	-Obligation de ce logger pour accéder au site
+
+	
+
+
+
+	
+		 
+		

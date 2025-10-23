@@ -1,0 +1,57 @@
+CREATE TABLE poke_utilisateur(
+   id_poke_utilisateur INT,
+   nom_poke VARCHAR(50),
+   stade_evolution_poke INT,
+   PRIMARY KEY(id_poke_utilisateur)
+);
+
+CREATE TABLE utilisateur(
+   id_utilisateur INT auto_increment,
+   nom_utilisateur VARCHAR(50),
+   nom_poke_utilisateur VARCHAR(50),
+   prenom_utilisateur VARCHAR(50),
+   id_poke_utilisateur INT,
+   date_naiss_utilisateur DATE,
+   pseudo_utilisateur VARCHAR(20),
+   mdp_utilisateur VARCHAR(255),
+   nb_pt_exp_utilisateur INT,
+   id_poke_utilisateur_1 INT,
+   PRIMARY KEY(id_utilisateur),
+   FOREIGN KEY(id_poke_utilisateur_1) REFERENCES poke_utilisateur(id_poke_utilisateur)
+);
+
+CREATE TABLE message(
+   id_message INT,
+   id_utilisateur INT,
+   date_message DATE,
+   contenu_message VARCHAR(999),
+   nb_like INT,
+   nb_dislike INT,
+   id_utilisateur_1 INT ,
+   PRIMARY KEY(id_message),
+   FOREIGN KEY(id_utilisateur_1) REFERENCES utilisateur(id_utilisateur)
+);
+
+CREATE TABLE experience(
+   id_exp INT,
+   nb_exp_action INT,
+   id_utilisateur INT,
+   PRIMARY KEY(id_exp),
+   FOREIGN KEY(id_utilisateur) REFERENCES utilisateur(id_utilisateur)
+);
+
+CREATE TABLE fil(
+   id_fil INT,
+   titre_fil VARCHAR(100),
+   id_utilisateur INT ,
+   PRIMARY KEY(id_fil),
+   FOREIGN KEY(id_utilisateur) REFERENCES utilisateur(id_utilisateur)
+);
+
+CREATE TABLE repondre_fil(
+   id_message INT,
+   id_fil INT,
+   PRIMARY KEY(id_message, id_fil),
+   FOREIGN KEY(id_message) REFERENCES message(id_message),
+   FOREIGN KEY(id_fil) REFERENCES fil(id_fil)
+);

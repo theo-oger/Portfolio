@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet Blog Pokémon - Portfolio Théo OGER</title>
+  <link rel="stylesheet" href="../../css/projet_general.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="../Acceuil.html">Accueil</a></li>
+        <li><a href="../apropos.html">À propos</a></li>
+        <li><a href="../projets.html" class="active">Projets</a></li>
+        <li><a href="../veille.html">Veille</a></li>
+        <li><a href="../root-me/root-me.html">Root Me</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenu principal -->
+  <main class="projet-container">
+    <h1>Projet Pokémon — Blog interactif</h1>
+
+    <p class="intro">
+      Ce projet a été réalisé en binôme dans le cadre d’un cours de développement.  
+      Nous avions <strong>carte blanche</strong> sur le choix du sujet, à condition d’intégrer au moins <strong>deux bases de données</strong>.  
+      Notre objectif était de créer un <strong>blog interactif sur le thème Pokémon</strong>, avec un système d’authentification, une recherche prédictive, un chat en ligne, et un système d’expérience pour les utilisateurs.
+    </p>
+
+      <a href="../../pdf/Maquette_Théo_Benoit.pdf" target="_blank" class="btn-rapport">Télécharger la maquette </a>
+    <p>
+      Nous souhaitions que chaque utilisateur puisse <strong>se connecter ou s’inscrire</strong> afin d’accéder au site.  
+      Les messages publiés devaient être associés à leur nom d’utilisateur.  
+      Le système de points et d’évolution était prévu, mais par manque de temps, il n’a pas pu être intégré à la version finale.
+    </p>
+
+    <h2>Cahier des charges</h2>
+    <p>
+      Le projet s’est déroulé sur une période de <strong>deux semaines</strong>.  
+      Afin d’organiser notre travail, nous avons commencé par la réalisation d’un <strong>cahier des charges</strong> détaillant les besoins, les objectifs et les contraintes du projet.
+    </p>
+
+    <a href="../../pdf/Cahier_des_charges_Théo_Benoit.txt" target="_blank" class="btn-rapport">Télécharger le cahier des charges</a>
+
+    <h2>Diagramme de Gantt</h2>
+    <p>
+      Pour planifier nos tâches et suivre notre progression, nous avons créé un <strong>diagramme de Gantt</strong> permettant d’évaluer le temps alloué à chaque étape du développement.
+    </p>
+
+    <a href="../../pdf/Gantt Théo Benoit.xlsx" target="_blank" class="btn-rapport">Télécharger le diagramme de Gantt</a>
+
+    <h2>Création des bases de données</h2>
+    <p>
+      Après la phase de préparation, nous avons conçu nos <strong>bases de données</strong> selon la structure suivante :
+    </p>
+
+    <a href="../../pdf/table.txt" target="_blank" class="btn-rapport">Télécharger le fichier de création des tables</a>
+
+    <h2>Développement du site</h2>
+    <p>
+      Nous avons commencé par développer la <strong>partie authentification</strong> et <strong>inscription</strong>.  
+      Les informations étaient enregistrées dans la base de données, et l’accès au site n’était possible que pour les utilisateurs enregistrés.
+    </p>
+
+    <div class="projet-images">
+      <img src="../../image/inscription_pokesite.png" alt="Page d'inscription du projet Pokémon">
+      <img src="../../image/inscription_code_poke.png" alt="Exemple de code d'authentification">
+    </div>
+
+    <p>
+      Ensuite, nous avons mis en place la fonctionnalité permettant de <strong>modifier les informations utilisateur</strong>.  
+      Nous avons utilisé la méthode <strong>sessions</strong> pour identifier les utilisateurs connectés.
+    </p>
+
+    <div class="projet-images">
+      <img src="../../image/changer_info_projet_poke.png" alt="Page de modification des informations">
+    </div>
+
+    <p>
+      Pour finir, nous avons intégré une <strong>barre de recherche prédictive</strong> en JavaScript, permettant d’obtenir des informations sur les Pokémon.  
+      Nous avons également ajouté un <strong>système de chat</strong> où chaque utilisateur pouvait poster des messages avec son nom associé.
+    </p>
+
+    <div class="projet-images">
+      <img src="../../image/barre predictive.png" alt="Aperçu du site avec le chat Pokémon">
+      <img src="../../image/chat_2.png" alt="Exemple de code du chat Pokémon">
+    </div>
+
+    <h2>Organisation du projet</h2>
+    <p>
+      <strong>Maîtrise d’œuvre :</strong> Théo OGER & Benoît Dufour  
+      <br>
+      <strong>Maîtrise d’ouvrage :</strong> notre professeur référent.
+    </p>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Théo OGER — Tous droits réservés</p>
+  </footer>
+
+</body>
+</html>

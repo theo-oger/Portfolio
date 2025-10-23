@@ -1,0 +1,212 @@
+/* === BASE === */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Fira+Code&display=swap');
+
+body {
+  margin: 0;
+  background-color: #1F1F1F;
+  color: #f1f1f1;
+  font-family: "Fira Code", monospace;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: "Poppins", sans-serif;
+  color: #86BBD8;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-top: 50px;
+}
+
+h2 {
+  font-size: 1.6rem;
+  margin-top: 60px;
+}
+
+/* === NAVIGATION === */
+header {
+  padding: 20px 40px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 25px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #ccc;
+  font-size: 14px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: #86BBD8;
+  font-weight: bold;
+  transform: scale(1.05);
+}
+
+/* === CONTENU PRINCIPAL === */
+.projet-container {
+  max-width: 950px;
+  margin: 80px auto;
+  padding: 0 25px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.projet-container p {
+  color: #ddd;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+/* === INTRO === */
+.projet-container .intro {
+  text-align: center;
+  color: #f1f1f1;
+  font-size: 1rem;
+  margin-bottom: 40px;
+}
+
+/* === IMAGES === */
+.projet-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin: 40px 0;
+}
+
+.projet-images img {
+  width: 45%;
+  max-width: 500px;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+.projet-images img:hover {
+  transform: scale(1.08);
+  filter: brightness(1.15);
+  box-shadow: 0 0 25px rgba(134, 187, 216, 0.4);
+}
+
+/* === IMAGE FULLSCREEN === */
+.image-fullscreen {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-fullscreen.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.image-fullscreen img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(255,255,255,0.2);
+  animation: zoomIn 0.4s ease;
+}
+
+.image-fullscreen::after {
+  content: "✕";
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.image-fullscreen::after:hover {
+  transform: scale(1.2);
+}
+
+/* === BOUTON RAPPORT === */
+.btn-rapport {
+  display: inline-block;
+  background: none;
+  border: 2px solid #ffcc66;
+  color: #ffcc66;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+  text-align: center;
+  margin: 30px auto 10px; /* ✅ centrage horizontal + espacement */
+  display: block; /* ✅ pour que le centrage fonctionne */
+  width: fit-content; /* ✅ s’adapte à la taille du texte */
+}
+
+.btn-rapport:hover {
+  background: #ffcc66;
+  color: #111;
+  transform: scale(1.05);
+}
+
+/* === FOOTER === */
+footer {
+  text-align: center;
+  padding: 40px 0;
+  background-color: #111;
+  color: #777;
+  margin-top: 100px;
+  font-size: 0.9rem;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .projet-images img {
+    width: 90%;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .projet-container {
+    margin: 60px 15px;
+    padding: 20px;
+  }
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
