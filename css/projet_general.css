@@ -10,61 +10,86 @@ body {
   overflow-x: hidden;
 }
 
+/* === TITRES === */
 h1, h2, h3 {
   font-family: "Poppins", sans-serif;
   color: #86BBD8;
   text-align: center;
+  margin: 0 0 30px 0; /* ❌ plus de margin-top, ✅ juste un espace en bas */
 }
 
 h1 {
   font-size: 2.2rem;
-  margin-top: 50px;
 }
 
 h2 {
   font-size: 1.6rem;
-  margin-top: 60px;
+}
+
+/* === SECTIONS === */
+section {
+  margin: 60px auto;
+  max-width: 1000px;
+  padding: 30px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  backdrop-filter: blur(10px);
+  scroll-margin-top: 80px; /* 🔹 optionnel si tu as des ancres */
+}
+
+
+/* === HEADER GLOBAL === */
+header {
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 /* === NAVIGATION === */
-header {
-  padding: 20px 40px;
-}
-
 nav ul {
+  list-style: none;
   display: flex;
   justify-content: flex-end;
-  list-style: none;
   margin: 0;
   padding: 0;
-  gap: 25px;
+}
+
+nav ul li {
+  margin-left: 20px;
 }
 
 nav ul li a {
   text-decoration: none;
   color: #ccc;
   font-size: 14px;
-  transition: color 0.3s, transform 0.3s;
+  transition: color 0.3s;
 }
 
 nav ul li a:hover,
 nav ul li a.active {
   color: #86BBD8;
   font-weight: bold;
-  transform: scale(1.05);
 }
 
-/* === CONTENU PRINCIPAL === */
-.projet-container {
-  max-width: 950px;
-  margin: 80px auto;
-  padding: 0 25px;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 20px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(10px);
-  animation: fadeInUp 0.8s ease forwards;
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  nav ul {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  nav ul li {
+    margin: 10px;
+  }
 }
+
+
+
+
 
 .projet-container p {
   color: #ddd;
@@ -100,8 +125,6 @@ nav ul li a.active {
 
 .projet-images img:hover {
   transform: scale(1.08);
-  filter: brightness(1.15);
-  box-shadow: 0 0 25px rgba(134, 187, 216, 0.4);
 }
 
 /* === IMAGE FULLSCREEN === */
@@ -168,6 +191,20 @@ nav ul li a.active {
   background: #ffcc66;
   color: #111;
   transform: scale(1.05);
+}
+
+/* ====== ANIMATION ====== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* === FOOTER === */

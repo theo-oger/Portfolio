@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet Salle de Jeux - Portfolio Théo OGER</title>
+  <link rel="stylesheet" href="../../css/projet_salledejeux.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav>
+      <ul>
+   <li><a href="../Acceuil.html">Accueil</a></li>
+        <li><a href="../apropos.html">À propos</a></li>
+        <li><a href="../projets.html" class="active">Projets</a></li>
+        <li><a href="../veille.html">Veille</a></li>
+        <li><a href="../root-me/root-me.html">Root Me</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- CONTENU -->
+  <main class="projet-container">
+    <section class="fade-in">
+    <h1>Projet — Salle de Jeux</h1>
+
+    <p class="intro">
+      Ce projet a été réalisé dans le cadre du BTS SIO. L’objectif était de concevoir une infrastructure réseau complète
+      simulant la gestion d’une "salle de jeux" moderne, avec plusieurs postes, serveurs et une topologie cohérente.
+    </p>
+    </section>
+    <section class="fade-in">
+      <h2>Présentation du projet</h2>
+      <p>
+        Ce projet m’a permis de travailler sur la modélisation et la mise en place d’un réseau local professionnel via
+        <strong>Cisco Packet Tracer</strong>.  
+        J’y ai créé l’ensemble de l’infrastructure : routeurs, switchs, VLANs, adressage IP et routage statique.  
+        L’objectif principal était d’assurer une "connexion stable" entre les différents services de la salle
+        (administration, clients, gestion du stock, borne de jeux, etc.).
+      </p>
+    </section>
+
+    <section class="fade-in">
+      <h2>Architecture réseau</h2>
+      <p>
+        L’infrastructure se compose de plusieurs sous-réseaux configurés avec des VLANs distincts afin d’isoler les flux :
+      </p>
+      <ul class="infra-list">
+        <li> Un VLAN pour l’administration</li>
+        <li> Un VLAN pour les postes clients</li>
+        <li> Un VLAN pour la zone serveur</li>
+        <li> Un VLAN invité dédié aux visiteurs</li>
+      </ul>
+      <p>
+        Le routage inter-VLAN a été configuré via un routeur central, et la gestion du trafic s’effectue à l’aide de
+        switchs.  
+        Une configuration DHCP a également été mise en place pour automatiser l’attribution des adresses IP.
+      </p>
+
+      <div class="projet-images">
+        <img src="../../image/projet_salledejeux.png" alt="Topologie du réseau sur Cisco Packet Tracer">
+      </div>
+    </section>
+
+    <section class="fade-in">
+      <h2>Livrables du projet</h2>
+      <p>
+        Plusieurs livrables ont été produits afin de cadrer, planifier et valider le projet de salle de jeux :
+      </p>
+
+      <div class="btn-container">
+        <a href="../../pdf/Projet salle de jeux.pdf" class="btn-rapport" target="_blank">Cahier des charges</a>
+        <a href="../../pdf/Cahier de recette.xlsx" class="btn-rapport" target="_blank">Cahier de recette</a>
+        <a href="../../pdf/Cahier-de-test.pdf" class="btn-rapport" target="_blank">Cahier de test</a>
+      </div>
+
+        <p>
+      <strong>Maîtrise d’œuvre :</strong> Théo OGER & Dalil Maksene & Sami Youssoufi  
+      <br>
+      <strong>Maîtrise d’ouvrage :</strong> notre professeur référent.
+    </p>
+    </section>
+
+    <section class="fade-in">
+      <h2>Conclusion</h2>
+      <p>
+        Ce projet m’a permis d’acquérir des compétences solides en infrastructure réseau et modélisation de systèmes.
+        Il m’a également donné une meilleure compréhension du fonctionnement d’un environnement informatique complet :
+        du routage jusqu’à la gestion des ressources et la sécurité du réseau.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Théo OGER — Tous droits réservés</p>
+  </footer>
+
+</body>
+</html>

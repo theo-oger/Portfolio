@@ -1,7 +1,6 @@
-/* ====== IMPORT FONTS ====== */
+/* ====== BASE ====== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Fira+Code:wght@400;500&display=swap');
 
-/* ====== BASE ====== */
 body {
   background-color: #1F1F1F;
   color: #fff;
@@ -11,18 +10,39 @@ body {
   overflow-x: hidden;
 }
 
-/* ====== HEADER ====== */
-header {
-  padding: 20px;
+/* === TITRES === */
+h1, h2, h3 {
+  font-family: "Poppins", sans-serif;
+  color: #86BBD8;
+  text-align: center;
+  margin: 0 0 30px 0; /* ❌ plus de margin-top, ✅ juste un espace en bas */
 }
 
+h1 {
+  font-size: 2.2rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+/* === HEADER GLOBAL === */
+header {
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* === NAVIGATION === */
 nav ul {
   list-style: none;
   display: flex;
   justify-content: flex-end;
   margin: 0;
   padding: 0;
-  flex-wrap: wrap;
 }
 
 nav ul li {
@@ -33,7 +53,6 @@ nav ul li a {
   text-decoration: none;
   color: #ccc;
   font-size: 14px;
-  font-family: "Fira Code", sans-serif;
   transition: color 0.3s;
 }
 
@@ -43,71 +62,135 @@ nav ul li a.active {
   font-weight: bold;
 }
 
-/* ====== TITRES ====== */
-h2 {
-  font-size: 1.6rem;
-  color: #ffffff;
-  text-align: left;
-  margin: 40px 35px 20px;
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  nav ul {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  nav ul li {
+    margin: 10px;
+  }
+}
+
+
+/* ====== INTRO ====== */
+.intro-projets {
+  max-width: 900px;
+  margin: 80px auto 50px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.intro-projets h1 {
+  color: #86BBD8;
   font-family: "Poppins", sans-serif;
+  font-size: 2rem;
+  margin-bottom: 10px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Poppins", sans-serif;
-    text-align: center;
+.intro-projets p {
+  color: #ccc;
+  font-size: 1rem;
 }
 
-/* ====== CONTENU PROJETS ====== */
-.categorie {
-  padding: 0 35px 60px;
-}
-
+/* ====== CARTES ====== */
 .grid-projets {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 40px;
+  padding: 0 35px 60px;
   justify-items: center;
 }
 
-/* ====== CARDS ====== */
 .projet-card {
-  background-color: rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background: rgba(255,255,255,0.05);
   border: 3px solid transparent;
   border-radius: 12px;
-  padding: 12px;
-  text-align: center;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  max-width: 250px;
 }
 
 .projet-card:hover {
-  transform: translateY(-5px);
- 
+  transform: translateY(-8px);
 }
 
 .projet-card img {
   width: 100%;
-  height: 200px;
+  height: 180px;
   object-fit: cover;
-  border: 2px solid transparent;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  border-bottom: 2px solid rgba(255,255,255,0.05);
 }
 
-.projet-card p {
-  font-size: 12px;
+.card-text {
+  padding: 15px;
+}
+
+.card-text h3 {
+  font-family: "Poppins", sans-serif;
+  color: #86BBD8;
+  margin: 10px 0 8px;
+  font-size: 1.1rem;
+}
+
+.card-text p {
+  font-size: 0.9rem;
   color: #ccc;
   line-height: 1.4;
 }
 
-.grid-projets img:hover { transform: scale(1.15); }
-
-
 /* Couleurs */
-.red  { border-color: #C33C54; }
-.blue  { border-color: #5ec4ff; }
-.yellow  { border-color: #ffcc66; }
+.red { border-color: #C33C54; }
+.blue { border-color: #5ec4ff; }
+.yellow { border-color: #ffcc66; }
 
+/* ====== ANIMATION ====== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*Contenant*/
+.grid-projets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+  padding: 0 35px 60px;
+  justify-items: stretch; /* Étend les cartes à la même largeur */
+}
+
+.projet-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-text {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* rapproche le texte du haut */
+  gap: 8px; /* petit espace harmonieux entre le titre et le texte */
+  min-height: 160px; /* garde une hauteur uniforme entre les cartes */
+}
+
+
+
+/* ====== FOOTER ====== */
 footer {
   text-align: center;
   padding: 30px 0;
@@ -121,17 +204,5 @@ footer {
 @media (max-width: 768px) {
   nav ul {
     justify-content: center;
-  }
-
-  nav ul li {
-    margin: 10px;
-  }
-
-  .grid-projets {
-    grid-template-columns: 1fr;
-  }
-
-  .projet-card {
-    max-width: 90%;
   }
 }

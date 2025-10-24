@@ -1,0 +1,128 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1F1F1F;
+  color: #fff;
+  font-family: "Fira Code", monospace;
+  line-height: 1.6;
+}
+
+header {
+  padding: 20px;
+  background: rgba(0,0,0,0.2);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+}
+nav ul li { margin-left: 20px; }
+nav ul li a { text-decoration: none; color: #ccc; font-size: 14px; transition: color 0.3s; }
+nav ul li a:hover, nav ul li a.active { color: #86BBD8; font-weight: bold; }
+
+.veille-container { max-width: 900px; margin: 80px auto; padding: 0 20px; }
+
+.accordion { display: flex; flex-direction: column; gap: 10px; }
+.accordion-toggle {
+  background: rgba(255,255,255,0.03);
+  color: #86BBD8;
+  cursor: pointer;
+  padding: 15px 20px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  font-family: "Poppins", sans-serif;
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+.accordion-toggle:hover { background: rgba(255,255,255,0.1); }
+.accordion-toggle.active { background: rgba(255,204,102,0.2); }
+
+.accordion-content {
+  background: rgba(255,255,255,0.03);
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease;
+  padding: 0 20px;
+  border-radius: 0 0 10px 10px;
+}
+.accordion-content p, .accordion-content ul, .accordion-content li { margin: 10px 0; color: #ccc; }
+
+.article-card {
+  background: rgba(255,255,255,0.05);
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+.article-card h4 { color: #86BBD8; margin-bottom: 5px; }
+.article-card a { color: #ffcc66; text-decoration: none; }
+.article-card a:hover { color: #86BBD8; }
+
+.btn-rapport {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 10px 20px;
+  border: 2px solid #ffcc66;
+  border-radius: 8px;
+  color: #ffcc66;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+.btn-rapport:hover {
+  background: #ffcc66;
+  color: #111;
+  transform: scale(1.05);
+}
+
+footer {
+  text-align: center;
+  padding: 30px 0;
+  background-color: #111;
+  color: #777;
+  font-size: 0.9rem;
+  margin-top: 80px;
+}
+
+@media (max-width:768px){ 
+  .veille-container { margin: 40px 15px; }
+  .accordion-toggle { font-size: 1rem; }
+}
+.article-card {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.article-card h4 {
+  color: #86BBD8;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.article-card p {
+  color: #ccc;
+  margin: 5px 0;
+  line-height: 1.6;
+}
+
+.article-card a {
+  color: #ffcc66;
+  text-decoration: none;
+}
+
+.article-card a:hover {
+  color: #86BBD8;
+  text-decoration: underline;
+}

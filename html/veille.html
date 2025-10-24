@@ -1,3 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veille - Portfolio Théo OGER</title>
+  <link rel="stylesheet" href="../css/veille.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="Acceuil.html">Accueil</a></li>
+        <li><a href="apropos.html">À propos</a></li>
+        <li><a href="projets.html">Projets</a></li>
+        <li><a href="veille.html" class="active">Veille</a></li>
+        <li><a href="./root-me/root-me.html">Root Me</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header> 
+
+  <main class="veille-container">
+
+    <section class="accordion">
+
+      <!-- Introduction -->
+      <button class="accordion-toggle">Introduction</button>
+      <div class="accordion-content">
+        <p>
+          La création de sites web et de serveurs n’a jamais été aussi accessible. Entre les CMS comme WordPress, les constructeurs en ligne tels que Wix ou les solutions assistées par IA, il est aujourd’hui possible de déployer un site fonctionnel sans connaissances techniques approfondies. Cependant, cette facilité s’accompagne d’un risque majeur : les sites et serveurs mal configurés deviennent des cibles faciles pour des attaques, pouvant entraîner la perte de données, le piratage ou la compromission de comptes utilisateurs.
+        </p>
+        <p>
+          Ma veille s’est concentrée sur les vulnérabilités courantes des sites web et serveurs créés par des particuliers et sur les mesures de protection recommandées par les sources consultées, accessibles même aux utilisateurs non-experts.
+        </p>
+
+        <!-- Glossaire -->
+        <div class="glossaire">
+          <h4>Glossaire :</h4>
+          <ul>
+            <li><strong>Cybersécurité :</strong> Ensemble des pratiques et technologies visant à protéger les systèmes informatiques et les données.</li>
+            <li><strong>Serveur web :</strong> Ordinateur ou logiciel qui stocke et sert les sites web aux utilisateurs.</li>
+            <li><strong>CMS :</strong> Système de gestion de contenu permettant de créer et gérer un site web sans coder tout le site manuellement.</li>
+            <li><strong>Vulnérabilité :</strong> Failles dans un système ou logiciel pouvant être exploitées par un attaquant.</li>
+          </ul>
+        </div>
+
+        <!-- Contexte -->
+        <div class="contexte">
+          <h4>Contexte :</h4>
+          <p>
+            Chaque année, des millions de sites web créés par des particuliers ou PME sont exposés à des attaques. La veille et la compréhension des risques sont donc cruciales pour sécuriser les données, les comptes utilisateurs et l’intégrité des services en ligne.
+          </p>
+        </div>
+      </div>
+
+      <!-- Problématique -->
+      <button class="accordion-toggle">Problématique</button>
+      <div class="accordion-content">
+        <p>
+          Comment protéger efficacement un serveur ou site web alors qu’il est possible de le créer facilement sans aucune compétence en cybersécurité ?
+        </p>
+      </div>
+
+      <!-- Sources et Méthodes -->
+      <button class="accordion-toggle">Sources et Méthodes</button>
+      <div class="accordion-content">
+        <h4>Sources consultées :</h4>
+        <ul>
+          <li>Sites spécialisés en cybersécurité (blogs techniques, rapports de vulnérabilités, forums)</li>
+          <li>Documentation officielle des CMS et constructeurs (WordPress.org, Wix…)</li>
+          <li>Toutes les informations pertinentes centralisées dans un tableau Excel</li>
+        </ul>
+        <h4>Flux RSS :</h4>
+        <p>Wordfence Blog, OWASP Blog, CVE Details / NVD (National Vulnerability Database)</p>
+        <h4>Newsletters :</h4>
+        <p>Hacker News (section sécurité), CISA Alerts, Blogs et rapports de sécurité CMS</p>
+        <h4>Outils avancés :</h4>
+        <p>Feedly, Inoreader, Google Alerts pour certains mots-clés précis</p>
+      </div>
+
+      <!-- Articles récents -->
+      <button class="accordion-toggle">Articles récents</button>
+      <div class="accordion-content">
+
+        <div class="article-card">
+          <h4><a href="https://www.techradar.com/pro/security/microsoft-fixes-one-of-its-highest-ever-rated-security-flaws-heres-what-happened" target="_blank">Vulnérabilité critique dans ASP.NET Core (CVE-2025-55315)</a></h4>
+          <p><strong>Date :</strong> 12 octobre 2025</p>
+          <p><strong>Type d'attaque :</strong> HTTP Request Smuggling</p>
+          <p><strong>Impact :</strong> Compromission de données sensibles et modification de contenu sur le serveur Kestrel d’ASP.NET Core.</p>
+          <p><strong>Solution :</strong> Mise à jour vers la version sécurisée d’ASP.NET Core.</p>
+          <p><strong>Source :</strong> <a href="https://www.techradar.com/pro/security/microsoft-fixes-one-of-its-highest-ever-rated-security-flaws-heres-what-happened" target="_blank">TechRadar</a></p>
+        </div>
+
+        <div class="article-card">
+          <h4><a href="https://interactiveonline.com/unauthenticated-stored-xss-vulnerability-patched-in-ultimate-member-wordpress-plugin/" target="_blank">Exploitation XSS dans plusieurs plugins WordPress</a></h4>
+          <p><strong>Date :</strong> 5 octobre 2025</p>
+          <p><strong>Type d'attaque :</strong> Cross-Site Scripting (XSS)</p>
+          <p><strong>Impact :</strong> Injection de scripts malveillants pouvant compromettre les comptes utilisateurs et exposer des données sensibles.</p>
+          <p><strong>Solution :</strong> Mise à jour immédiate des plugins concernés et désactivation des extensions non sécurisées.</p>
+          <p><strong>Source :</strong> <a href="https://interactiveonline.com/unauthenticated-stored-xss-vulnerability-patched-in-ultimate-member-wordpress-plugin/" target="_blank">Interactive Online</a></p>
+        </div>
+
+        <div class="article-card">
+          <h4><a href="https://www.ifourtechnolab.com/blog/owasp-vulnerability-sql-injection" target="_blank">Injection SQL dans CMS Open Source</a></h4>
+          <p><strong>Date :</strong> 20 septembre 2025</p>
+          <p><strong>Type d'attaque :</strong> Injection SQL</p>
+          <p><strong>Impact :</strong> Accès non autorisé et modification de la base de données des CMS obsolètes.</p>
+          <p><strong>Solution :</strong> Mise à jour régulière du CMS, audit des extensions et utilisation de requêtes préparées.</p>
+          <p><strong>Source :</strong> <a href="https://www.ifourtechnolab.com/blog/owasp-vulnerability-sql-injection" target="_blank">iFour Technolab</a></p>
+        </div>
+
+      </div>
+
+      <!-- Télécharger Excel -->
+      <button class="accordion-toggle">Télécharger le fichier Excel</button>
+      <div class="accordion-content">
+        <p>
+          Vous pouvez télécharger le fichier Excel contenant toutes les sources, les articles suivis et les mots-clés associés pour cette veille.
+        </p>
+        <a href="../files/veille_sources.xlsx" class="btn-rapport" download>Télécharger le fichier Excel</a>
+      </div>
+
+      <!-- Observations -->
+      <button class="accordion-toggle">Observations issues de la veille</button>
+      <div class="accordion-content">
+        <ul>
+          <li>Vulnérabilités fréquentes : injections SQL, XSS, CSRF, plugins/thèmes non maintenus</li>
+          <li>CMS et sites créés par des particuliers restent exposés sans mises à jour ni bonnes pratiques</li>
+          <li>Solutions no-code offrent un certain niveau de sécurité côté hébergeur, mais la sécurité dépend toujours des choix utilisateurs</li>
+          <li>Mesures recommandées : mises à jour régulières, surveillance des vulnérabilités, sauvegardes</li>
+        </ul>
+      </div>
+
+      <!-- Conclusion -->
+      <button class="accordion-toggle">Conclusion</button>
+      <div class="accordion-content">
+        <p>
+          La création facile de sites web et de serveurs par des particuliers démocratise le numérique, mais entraîne des risques de sécurité importants. La veille montre qu’il est possible de limiter ces risques avec des mesures simples : mises à jour régulières, sauvegardes, mots de passe forts, authentification multifacteur (2FA) et contrôle des extensions/plugins.
+        </p>
+        <p>
+          Cependant, la protection technique seule ne suffit pas. Les utilisateurs doivent être sensibilisés aux bonnes pratiques et aux risques liés à la cybersécurité. La veille permet ainsi non seulement de suivre les vulnérabilités émergentes, mais aussi de mettre en lumière la nécessité d’une culture de sécurité auprès des utilisateurs.
+        </p>
+      </div>
+
+    </section>
+  </main>
+
   <footer>
     <p>© 2025 Théo OGER — Tous droits réservés</p>
   </footer>
+
+  <script src="../js/veille.js"></script>
+</body>
+</html>

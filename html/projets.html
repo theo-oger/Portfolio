@@ -15,7 +15,7 @@
         <li><a href="Acceuil.html">Accueil</a></li>
         <li><a href="apropos.html">À propos</a></li>
         <li><a href="projets.html" class="active">Projets</a></li>
-        <li><a href="veille.html">Veilles</a></li>
+        <li><a href="veille.html">Veille</a></li>
         <li><a href="./root-me/root-me.html">Root Me</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
@@ -25,76 +25,80 @@
   <main>
 
     <!-- Introduction -->
-    <section class="intro-projets">
+    <section class="intro-projets fade-in">
       <h1>Mes Projets</h1>
       <p>
-        Ici, vous trouverez une partie des projets que j’ai réalisés, que ce soit dans le cadre de mes cours ou à titre personnel.  
-        J’y présente aussi bien des projets de développement que des projets réseau, car ces deux domaines me passionnent et reflètent mes compétences techniques.  
+        Ici, vous trouverez une sélection de mes projets réalisés, que ce soit dans le cadre de mes études ou à titre personnel.  
+        J’y présente aussi bien des projets de développement que des projets réseau, car ces deux domaines reflètent mes compétences et mes passions.
       </p>
     </section>
 
     <!-- Section Développement -->
-    <section class="categorie">
+    <section class="categorie fade-in">
       <h2>Projets Développement</h2>
       <div class="grid-projets">
-        <div class="projet-card red">
-          <a href="projet/projet_IA.html" target="_blank">
-            <img src="../image/dev1.jpg" alt="Projet Développement 1">
-          </a>
-          <p>Développement d'une petite IA capable de reconnaître le chiffre dessiné par l’utilisateur.
-            Language utilisé : Python
-          </p>
-        </div>
+        
+        <a href="projet/projet_IA.html" class="projet-card red">
+          <img src="../image/neural_net-1024x379.gif" alt="Projet IA">
+          <div class="card-text">
+            <h3>IA de reconnaissance de chiffres</h3>
+            <p>Première IA entraînée à reconnaître des chiffres dessinés à la main.  
+            <br><strong>Langage :</strong> Python</p>
+          </div>
+        </a>
 
-        <div class="projet-card blue">
-          <a href="projet/projet_pokemon.html" target="_blank">
-            <img src="../image/dev2.jpg" alt="Projet Développement 2">
-          </a>
-          <p>Création d’un petit blog sur l’univers Pokémon.
-            Language utilisés: PHP, SQL, HTML, CSS, Javascript
-          </p>
-        </div>
+        <a href="projet/projet_pokemon.html" class="projet-card blue">
+          <img src="../image/Pokemon-Logo-Clipart-edit-online.png" alt="Projet Pokémon">
+          <div class="card-text">
+            <h3>Blog Pokémon</h3>
+            <p>Création d’un blog interactif avec système d’authentification, recherche et chat.  
+            <br><strong>Langages :</strong> PHP, SQL, HTML, CSS, JS</p>
+          </div>
+        </a>
 
-        <div class="projet-card yellow">
-          <a href="projet/projet_angular" target="_blank">
-            <img src="../image/dev3.jpg" alt="Projet Développement 3">
-          </a>
-          <p>Développement d’un mini-dashboard Node.js/Angular pour la gestion et le suivi de tickets.</p>
-        </div>
+        <a href="projet/projet_angular.html" class="projet-card yellow">
+          <img src="../image/Node.js_logo.svg.png" alt="Projet NodeJS">
+          <div class="card-text">
+            <h3>GSB NodeJS</h3>
+            <p>Projet de gestion GSB.  
+            <br><strong>Langages :</strong> NodeJS, HTML, CSS</p>
+          </div>
+        </a>
+
       </div>
     </section>
 
     <!-- Section Réseau -->
-    <section class="categorie">
-      <h2>Projets Réseau</h2>
+    <section class="categorie fade-in">
+      <h2>Autres projets</h2>
       <div class="grid-projets">
-        <div class="projet-card red">
-          <a href="../image/reseau1.jpg" target="_blank">
-            <img src="../image/reseau1.jpg" alt="Projet Réseau 1">
-          </a>
-          <p>Configuration d’un réseau d’entreprise avec segmentation VLAN et routage inter-VLAN.</p>
-        </div>
+        
+        <a href="projet/projet_premier.html" class="projet-card red">
+          <img src="../image/depositphotos_363008278-stock-illustration-red-gray-and-black-numbers.webp" alt="Projet Devine le nombre">
+          <div class="card-text">
+            <h3>Devine le nombre</h3>
+            <p>Petit jeu web générant un nombre aléatoire à deviner.  
+            <br><strong>Langages :</strong> HTML, CSS, JS</p>
+          </div>
+        </a>
 
-        <div class="projet-card blue">
-          <a href="../image/reseau2.jpg" target="_blank">
-            <img src="../image/reseau2.jpg" alt="Projet Réseau 2">
-          </a>
-          <p>Déploiement et paramétrage d’un serveur DHCP et DNS sous Windows Server.</p>
-        </div>
+        <a href="projet/projet_salle_de_jeux.html" class="projet-card blue">
+          <img src="../image/projet_salledejeux.png" alt="Projet Réseau">
+          <div class="card-text">
+            <h3>Infrastructure Salle de jeux</h3>
+            <p>Conception complète d’un réseau avec routage inter-VLAN, DHCP et supervision.  
+            <br><strong>Outil :</strong> Cisco Packet Tracer</p>
+          </div>
+        </a>
 
-        <div class="projet-card yellow">
-          <a href="../image/reseau3.jpg" target="_blank">
-            <img src="../image/reseau3.jpg" alt="Projet Réseau 3">
-          </a>
-          <p>Supervision complète d’un réseau à l’aide de Zabbix, avec configuration d’alertes et de rapports.</p>
-        </div>
       </div>
     </section>
 
   </main>
 
-</body>
   <footer>
     <p>© 2025 Théo OGER — Tous droits réservés</p>
   </footer>
+
+</body>
 </html>

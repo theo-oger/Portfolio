@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Fira Code", monospace;
+  background-color: #1F1F1F;
+  color: #f1f1f1;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  padding: 20px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #ccc;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: #86BBD8;
+  font-weight: bold;
+}
+
+/* Conteneur principal */
+.projet-container {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.projet-container h1 {
+  font-size: 2rem;
+  color: #86BBD8;
+  margin-bottom: 30px;
+}
+
+.projet-container h2 {
+  color: #86BBD8;
+  margin-bottom: 15px;
+  font-size: 1.6rem;
+}
+
+.projet-container p {
+  color: #ccc;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.projet-container .intro {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #f1f1f1;
+}
+
+.projet-image {
+  margin: 40px 0;
+}
+
+.projet-image img {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Bouton rapport */
+.btn-rapport {
+  display: inline-block;
+  background: #1F1F1F;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 8px;
+  border: 2px solid #ffcc66;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+  text-align: center;
+  margin: 30px auto;
+}
+
+.btn-rapport:hover {
+  background: #ffcc66;
+  color: #0f1115;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 30px 0;
+  background-color: #111;
+  color: #777;
+  font-size: 0.9rem;
+  margin-top: 80px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .projet-container {
+    margin: 60px 20px;
+  }
+
+  nav ul {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  nav ul li {
+    margin: 10px;
+  }
+
+  .projet-container h1 {
+    font-size: 1.6rem;
+  }
+}
