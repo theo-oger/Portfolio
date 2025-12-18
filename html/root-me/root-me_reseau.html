@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos - Portfolio Théo OGER</title>
+  <link rel="stylesheet" href="../../css/root-me_pages.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<script src="../../js/veille.js"></script>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="../Acceuil.html">Accueil</a></li>
+        <li><a href="../apropos.html">À propos</a></li>
+        <li><a href="../projets.html">Projets</a></li>
+        <li><a href="../veille.html">Veille</a></li>
+        <li><a href="root-me.html" class="active">Root Me</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="veille-container">
+
+    <section class="accordion">
+
+      <!-- FTP- Authentification -->
+      <button class="accordion-toggle">FTP- Authentification</button>
+      <div class="accordion-content">
+  <p>Dans ce challenge l idée est de comprendre que certains protocoles anciens comme Telnet ne chiffrent absolument rien toutes les données passent en clair sur le réseau y compris les identifiants et les mots de passe.</p>
+<p>Avec Wireshark il suffit de capturer le trafic puis de faire un clic droit sur une trame et choisir Follow TCP Stream pour reconstituer la conversation complète entre le client et le serveur on voit alors directement les commandes envoyées et les réponses reçues et surtout les mots de passe apparaissent en clair.</p>
+</div>
+
+<!-- Telnet – Authentification -->
+      <button class="accordion-toggle">Telnet – Authentification</button>
+      <div class="accordion-content">
+  <p>On reste sur la même logique que pour Telnet ou FTP avec Wireshark il suffit de capturer le trafic puis de faire clic droit → Follow TCP Stream pour reconstituer la conversation complète entre client et serveur.</p>
+</div>
+
+<!-- Ethernet Trame -->
+      <button class="accordion-toggle">Ethernet Trame</button>
+      <div class="accordion-content">
+  <p>Dans ce challenge l’indice est directement dans la documentation fournie par Root‑Me en analysant les trames Ethernet on remarque qu’il ne s’agit pas de binaire pur mais d’un message encodé.</p>
+<p>En regardant attentivement le contenu des trames on voit que la donnée est en hexadécimal et qu’elle correspond en réalité à une chaîne encodée en Base64. La démarche est donc la suivante :</p>
+       <p>- Ouvrir le fichier de capture et afficher les trames Ethernet.</p>
+       <p>- Repérer la charge utile qui est donnée en hexadécimal.</p>
+       <p>- Convertir l’hexadécimal en ASCII pour obtenir la chaîne lisible.</p>
+       <p>- Décoder la chaîne Base64 pour révéler le message caché.</p>
+</div>
+
+<!-- Authentification Twitter -->
+      <button class="accordion-toggle">Authentification Twitter</button>
+      <div class="accordion-content">
+  <p>Dans cette capture il n y a qu une seule trame ce qui simplifie énormément l exploitation on ouvre la trame dans Wireshark et dans la zone centrale on déroule l en tête HTTP avec le signe + pour voir les détails.</p>
+<p>On remarque que l authentification a été faite avec la méthode Basic ce qui signifie que les identifiants sont encodés en Base64 directement dans l’en tête Authorization.</p>
+<p>Le principe est simple Basic Auth envoie Authorization: Basic <chaine_base64> où la chaîne correspond à username:password encodé en Base64 il suffit donc de copier cette valeur et de la décoder pour obtenir en clair le couple identifiant mot de passe.</p>
+</div>
+
+<!-- Bluetooth fichier inconnu -->
+      <button class="accordion-toggle">Bluetooth fichier inconnu</button>
+      <div class="accordion-content">
+  <p>Le challenge commence par une vérification rapide avec la commande file sur le fichier ch18.bin qui nous indique qu’il s’agit bien d’un fichier BTSnoop, format utilisé pour capturer des échanges Bluetooth. L’énoncé confirme cette information.</p>
+<p>Comme Wireshark gère nativement ce type de capture, on ouvre directement le fichier avec Wireshark. On peut alors visualiser la séquence d’échanges entre l’ordinateur et le téléphone.</p>
+<p>Un outil pratique se trouve dans le menu Wireless → Bluetooth devices. Cette fenêtre liste tous les appareils impliqués dans la communication et affiche leurs informations.</p>
+<p>On obtient alors :</p>
+      <p>- BD_ADDR (adresse MAC du téléphone) : 0C:B3:19:B9:4F:C6</p>
+      <p>- Name (nom diffusé par l’appareil) : GT-S7390G</p>
+<p>Le flag est simplement la concaténation de l’adresse MAC en majuscules et du nom tel quel :</p>
+<p>0C:B3:19:B9:4F:C6GT-S7390G</p>
+</div>
+
+<!-- Cisco Mot de Passe -->
+      <button class="accordion-toggle">Cisco Mot de Passe</button>
+      <div class="accordion-content">
+  <p>Dans ce challenge, on identifie plusieurs hash différents. Le premier est de type 5 (MD5 salé), relativement robuste. Après avoir fait souffrir mon PC pendant une bonne heure, j’ai compris que je n’y arriverais pas sans une ferme de GPU – au grand plaisir de mes parents qui n’auraient pas apprécié la facture d’électricité.</p>
+<p>Le second est de type 7, le fameux chiffrement Cisco, qui n’est pas un vrai hash mais un encodage réversible. En utilisant un simple outil en ligne, on obtient immédiatement deux mots de passe :</p>
+      <p>- 6sK0_hub pour le hub</p>
+      <p>- 6sK0_guest pour le guest</p>
+<p>Et là, on ne peut s’empêcher d’être sarcastique : encore un administrateur compétent…</p>
+</div>
+
+<!-- DNS Transfert de Zone -->
+      <button class="accordion-toggle">DNS Transfert de Zone</button>
+      <div class="accordion-content">
+  <p>Un transfert de zone (Zone Transfer, ou AXFR) est une opération qui permet de récupérer l’intégralité du contenu d’une zone DNS depuis un serveur. Normalement, cette fonctionnalité est utilisée entre serveurs DNS secondaires et primaires pour synchroniser leurs bases de données. Mais si elle est mal configurée et laissée ouverte à n’importe quel client.</p>
+<p>Dans ce challenge, la commande utilisée est :</p>
+<p>Code : dig @challenge01.root-me.org -p 54011 AXFR ch11.challenge01.root-me.org.</p>
+      <p>- dig est l’outil de requête DNS.</p>
+      <p>- @challenge01.root-me.org indique le serveur DNS à interroger.</p>
+      <p>- -p 54011 précise le port utilisé (ici non standard).</p>
+      <p>- AXFR est le type de requête correspondant au transfert de zone.</p>
+      <p>- ch11.challenge01.root-me.org. est la zone dont on veut récupérer le contenu.</p>
+</div>
+
+<!-- IP time to live -->
+      <button class="accordion-toggle">IP time to live</button>
+      <div class="accordion-content">
+  <p>Dans ce challenge, la solution est effectivement très simple : en ouvrant la capture réseau avec Wireshark, on peut directement observer le champ TTL (Time To Live) dans chaque trame IP.</p>
+<p>Le TTL indique le nombre de sauts (hops) qu’un paquet peut effectuer avant d’être détruit. Chaque routeur traversé décrémente cette valeur de 1. Lorsqu’elle atteint zéro, le paquet est abandonné.</p>
+<p>En pratique, il suffit donc de :</p>
+      <p>- Charger la capture dans Wireshark.</p>
+      <p>- Sélectionner une trame IP.</p>
+      <p>- Dérouler l’en‑tête IP pour voir le champ Time To Live.</p>
+<p>On obtient immédiatement la valeur du TTL, ce qui donne la réponse attendue pour le challenge.</p>
+</div>
+
+<!-- LDAP null bind -->
+      <button class="accordion-toggle">LDAP null bind</button>
+      <div class="accordion-content">
+  <p>Dans ce challenge, l’idée est d’utiliser l’outil ldapsearch pour interroger un annuaire LDAP mal configuré. La commande que tu as utilisée est :</p>
+<p>Code : ldapsearch -H ldap://challenge01.root-me.org:54013 -x -b "uid=anonymous,ou=People,dc=challenge01,dc=root-me,dc=org"</p>
+<p>Décomposition :</p>
+      <p>- ldapsearch : outil en ligne de commande permettant d’interroger un annuaire LDAP.</p>
+      <p>- -H ldap://challenge01.root-me.org:54013 : indique l’URL et le port du serveur LDAP à contacter. Ici, le port est non standard (54013).</p>
+      <p>- -x : option qui force une authentification simple (sans SASL), pratique quand l’annuaire est ouvert ou mal sécurisé.</p>
+      <p>- -b "uid=anonymous,ou=People,dc=challenge01,dc=root-me,dc=org" : définit la base DN (Distinguished Name) à partir de laquelle la recherche doit commencer. Ici, on cible directement l’entrée correspondant à l’utilisateur anonymous dans l’unité organisationnelle People de la zone challenge01.root-me.org.</p>
+<p>En clair, cette commande demande au serveur LDAP : « Donne‑moi toutes les informations disponibles sur l’utilisateur anonymous dans ta base. ».</p>
+</div>
+
+<!-- POP APOP -->
+      <button class="accordion-toggle">POP APOP</button>
+      <div class="accordion-content">
+  <p>Comme d’habitude, j’ai commencé par observer le flux TCP dans Wireshark. On remarque rapidement un échange un peu particulier : après le message de bannière du serveur, une authentification passe sous une forme qui semble chiffrée. On se doute donc que c’est le mot de passe, mais pas en clair.</p>
+<p>En fouillant la RFC 1939 (POP3), on découvre la commande APOP :</p>
+      <p>- Le serveur envoie un timestamp dans son message de bienvenue, sous la forme <process-ID.clock@hostname>.</p>
+      <p>- Le client calcule ensuite un digest en appliquant l’algorithme MD5 sur la concaténation du timestamp (y compris les chevrons) et du mot de passe partagé (le secret).</p>
+      <p>- Le client envoie APOP name digest au serveur pour s’authentifier.</p>
+<p>Donc, ce qu’on voit dans le flux TCP est bien un hash MD5 calculé à partir du timestamp + mot de passe.</p>
+<p>Il suffit alors de récupérer ce hash et de le passer dans hashcat pour le casser. Une fois le mot de passe trouvé, le challenge est validé.</p>
+</div>
+
+<!-- SIP Authentification -->
+      <button class="accordion-toggle">SIP Authentification</button>
+      <div class="accordion-content">
+  <p>Sur ce challenge, j’ai un peu galéré. J’ai rarement parlé du temps que je prends ou j’ai dit que c’était simple, mais là, il fallait vraiment allumer son cerveau. Je suis parti loin (très loin) dans mes hypothèses et ma manière de travailler n’était clairement pas la bonne au départ.</p>
+<p>Finalement, j’ai présenté le problème à un ami qui m’a donné la solution directement. Et effectivement, en regardant bien, on trouve trois lignes dans le fichier… dont le mot de passe admin en clair.</p>
+<p>Pas besoin de casser quoi que ce soit, pas besoin de bruteforce ou d’outils compliqués : le mot de passe était là, sous mes yeux.</p>
+</div>
+
+<!-- Trame altérées -->
+      <button class="accordion-toggle">Trame altérées</button>
+      <div class="accordion-content">
+  <p>Si on décode la trame Ethernet à trous, on se rend compte que l’on nous demande pour commencer deux fins d’adresse MAC (du VMWare)</p>
+<p>0050 569e 7b ?? SRC</p>
+<p>0050 569e 7b ?? DST</p>
+<p>Vient ensuite un word que l’on retrouve identique dans chacun des autres paquets : 0x8100
+Si on décode une des trois trames proposées on se rend compte que cela signifie une encapsulation Dot1Q le word suivant donne le Vlan, soit, dans notre paquet : 0186.</p>
+<p>Si on continue de décoder on se rend compte que toutes sont des trames IPv6 (86DD) contenant des ICMPv6 Requests (voir le 3a et le 80) (Un ping quoi).</p>
+<p>On décode maintenant la trame à trous en se disant que c’est une ICMP Reply (les >>> et <<< étaient supposés aider sur le sens : EGRESS flux sortant et INGRESS flux entrant).</p>
+<p>On sait que le Vlan est le 390 (0186), on peut donc éliminer la trame N°1.
+On sait que l’identifiant du ping est 792, on peut donc éliminer la trame N°3.</p>
+<p>La bonne trame ping request semble donc être la deuxième.</p>
+<p>0x0000:  0050 569e 7bf7 0050 569e 7bf9 8100 0186  </p>
+<p>0x0010:  86dd 6000 0000 0040 3a40 2002 c000 0203  </p>
+<p>0x0020:  0000 0000 0000 0000 b00b 2002 c000 0203  </p>
+<p>0x0030:  0000 0000 0000 0000 fada 8000 0af0 0792  </p>
+<p>0x0040:  0001 146d a451 0000 0000 d020 0300 0000  </p>
+<p>0x0050:  0000 2d4d 452e 4f52 4720 524f 4f54 2d4d  </p>
+<p>0x0060:  452e 4f52 4720 524f 4f54 2d4d 452e 4f52  </p>
+<p>0x0070:  4720 524f 4f54 2d4d 452e</p>
+<p>Décodons là trame 2 complètement.</p>
+<p>DEST MAC 0050 569e 7bf7</p>
+<p>SRC MAC 0050 569e 7bf9 </p>
+<p>TYPE 8100 (Encapsulation DOT1Q)</p>
+<p>VLAN 0186 Vlan 390</p>
+<p>IPV6 86dd</p>
+<p>blaba 6000 0000 </p>
+<p>PAyload len : 0040</p>
+<p>ICMP v6 3a</p>
+<p>TTL 40 </p>
+<p>IPSrc 2002:c000:0203:0000:0000:0000:0000:b00b </p>
+<p>IPDsT 2002:c000:0203:0000:0000:0000:0000:fada</p>
+<p>Ping Request 80</p>
+<p>Code 00 </p>
+<p>CheckSum 0af0 </p>
+<p>Identifier 0792 </p>
+<p>Sequence 0001 </p>
+<p>DATA.... tous le Reste</p>
+<p>On peut alors remplir les trous. On inverse les adresses mac SRC et DST car c’est une réponse. Idem pour les IP. L’ICMPv6 c’est 3a et le ping réponse est codé 81.</p>
+</div>
+
+
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Théo OGER — Tous droits réservés</p>
+  </footer>
+
+</body>
+</html>

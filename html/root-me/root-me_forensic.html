@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos - Portfolio Théo OGER</title>
+  <link rel="stylesheet" href="../../css/root-me_pages.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<script src="../../js/veille.js"></script>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="../Acceuil.html">Accueil</a></li>
+        <li><a href="../apropos.html">À propos</a></li>
+        <li><a href="../projets.html">Projets</a></li>
+        <li><a href="../veille.html">Veille</a></li>
+        <li><a href="root-me.html" class="active">Root Me</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="veille-container">
+
+    <section class="accordion">
+
+      <!-- Fichier supprimé -->
+      <button class="accordion-toggle">Fichier supprimé</button>
+      <div class="accordion-content">
+  <p>Le challenge consiste à analyser un fichier image disque nommé usb.image plutôt que de chercher à le monter ou à l’exécuter on peut simplement l’ouvrir avec un éditeur de texte comme VS Code ou même un hexadump pour voir son contenu brut.</p>
+<p>En parcourant les lignes on remarque rapidement qu il contient des métadonnées au format RDF et à la ligne 14 on trouve directement l information recherchée le nom du propriétaire sous la balise.</p>
+<p>< rdf:li > Prénom NOM < /rdf:li ></p>
+</div>
+
+<!-- Command Control niveau 2 -->
+      <button class="accordion-toggle">Command Control niveau 2</button>
+      <div class="accordion-content">
+  <p>La solution ici n est pas forcément la plus élégante mais elle reste efficace on utilise simplement la commande strings pour extraire toutes les chaînes lisibles du fichier mémoire ch2.dmp</p>
+<p>strings ch2.dmp > resultat.txt</p>
+<p>On obtient alors un fichier texte contenant toutes les chaînes ASCII présentes dans le dump il suffit ensuite de parcourir ce fichier et de chercher les occurrences liées à Netbios puisque c est là que l on peut trouver le nom de la machine.</p>
+<p>En fouillant un peu on tombe sur la ligne suivante :</p>
+<p>\Device\NetbiosSmbWIN-ETSA91RKCFPWORKGROUP</p>
+</div>
+
+<!-- Oh my grub -->
+      <button class="accordion-toggle">Oh my grub</button>
+      <div class="accordion-content">
+  <p>Le principe de ce challenge repose sur la compréhension du rôle de GRUB qui est le programme d’amorçage permettant de choisir sur quel système on va démarrer. GRUB est stocké dans la partition /boot qui est séparée du système d’exploitation et qui, en général, n’est pas chiffrée par les outils de chiffrement de disque. Cela ouvre la possibilité de modifier directement ses paramètres pour influencer le démarrage.</p>
+<p>Lors du boot, quand on arrive sur l’écran GRUB, il suffit d’appuyer sur la touche e pour éditer les options de lancement. On repère la ligne qui contient les paramètres du noyau et c’est là qu’on intervient.</p>
+<p>On remplace le paramètre ro (read-only) par rw (read-write) afin d’obtenir les permissions d’écriture. Ensuite, on ajoute l’option init=/bin/bash qui indique au noyau de démarrer directement sur un shell bash.</p>
+<p>Avec ces modifications, au prochain boot, la machine démarre sur un shell root avec les droits d’écriture, ce qui permet d’accéder au système sans passer par l’authentification classique.</p>
+  <a href="https://www.root-me.org/IMG/png/2022-12-06-12-08-55.png" class="btn-rapport" target="_blank">Voir l'image</a>
+  <a href="https://www.root-me.org/IMG/png/2022-12-06-12-10-12.png" class="btn-rapport" target="_blank">Voir l'image</a>
+</div>
+</section>
+    
+  </main>
+
+  <footer>
+    <p>© 2025 Théo OGER — Tous droits réservés</p>
+  </footer>
+
+</body>
+</html>

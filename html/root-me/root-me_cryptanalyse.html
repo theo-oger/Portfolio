@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos - Portfolio Théo OGER</title>
+  <link rel="stylesheet" href="../../css/root-me_pages.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<script src="../../js/veille.js"></script>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="../Acceuil.html">Accueil</a></li>
+        <li><a href="../apropos.html">À propos</a></li>
+        <li><a href="../projets.html">Projets</a></li>
+        <li><a href="../veille.html">Veille</a></li>
+        <li><a href="root-me.html" class="active">Root Me</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="veille-container">
+
+    <section class="accordion">
+
+      <!-- Encodage UU -->
+      <button class="accordion-toggle">Encodage UU</button>
+      <div class="accordion-content">
+  <p>
+    Le titre du challenge donne déjà la solution : on parle d’un encodage UU aussi appelé uuencode.  
+    Ce format n’a jamais été conçu pour chiffrer des données mais simplement pour transporter des fichiers binaires sous forme de texte ASCII.
+  </p>
+  <p>
+    La démarche est simple : on prend l’input fourni par le challenge et on le colle dans un décodeur en ligne, par exemple sur dcode.fr (encodage uu).  
+    On lance le décodage et on récupère directement le contenu en clair.
+  </p>
+  <a href="https://www.dcode.fr/encodage-uu" class="btn-rapport" target="_blank">Dcode</a>
+</div>
+
+
+      <!-- Hash DCC -->
+      <button class="accordion-toggle">Hash DCC</button>
+      <div class="accordion-content">
+        <p>Le titre du challenge est déjà un indice on parle de DCC qui est utilisé dans les réseaux IRC on nous donne une ligne qui ressemble à un couple identifiant hash et utilisateur.
+</p>
+<p>ROOTME.LOCAL/Administrator :15a57c279ebdfea574ad1ff91eb6ef0c:Administrator
+</p>
+<p>Le hash présent correspond à un mot de passe encodé en DCC il faut donc le casser pour retrouver la valeur en clair pour ça j utilise hashcat qui est un outil spécialisé dans le cracking de hash je choisis le type 1100 qui correspond aux hash DCC et je lance une attaque brute force avec le mode 0 en utilisant la wordlist rockyou qui est directement disponible sur kali.
+</p>
+<p>hashcat --hash-type 1100 --attack-mode 0 ./h /usr/share/wordlists/rockyou.txt
+</p>
+<p>Le programme va tester les mots de la wordlist contre le hash et finir par trouver la correspondance.
+</p>
+      </div>
+
+      <!-- Hash DCC 2 -->
+      <button class="accordion-toggle">Hash DCC 2</button>
+      <div class="accordion-content">
+        <p>Même logique que précédemment sauf qu ici on est sur du DCC2 donc je change simplement le type de hash dans hashcat en mettant 2100 le reste de la commande reste identique et permet de casser ce second hash.
+</p>
+      </div>
+
+      <!-- Hash LM -->
+      <button class="accordion-toggle">Hash LM</button>
+      <div class="accordion-content">
+        <p>Même logique que pour les précédents challenges mais cette fois on est sur du LM donc je change simplement le type de hash dans hashcat en mettant 3000 le reste de la commande reste identique je lance une attaque brute force avec le mode 0 et la wordlist rockyou.
+</p>
+<p>hashcat --hash-type 3000 --attack-mode 0 ./h /usr/share/wordlists/rockyou.txt
+</p>
+<p>Le programme va tester les mots de la wordlist contre le hash LM et finir par trouver la correspondance.
+</p>
+      </div>
+
+      <!-- Hash Message Digest 5 -->
+      <button class="accordion-toggle">Hash Message Digest 5</button>
+      <div class="accordion-content">
+        <p>Ici on est sur du MD5 qui est un des hash les plus connus et les plus utilisés la procédure reste la même mais avec le type 0 dans hashcat.</p>
+<p>hashcat --hash-type 0 --attack-mode 0 ./h /usr/share/wordlists/rockyou.txt</p>
+<p>Pour ce genre de hash assez faible il n est même pas toujours nécessaire d utiliser hashcat un simple décodeur en ligne suffit souvent et il existe énormément de rainbow tables disponibles sur internet qui permettent de retrouver rapidement la valeur en clair.</p>
+      </div>
+
+      <!-- Hash NT -->
+      <button class="accordion-toggle">Hash NT</button>
+      <div class="accordion-content">
+        <p>Ici on est sur du NT donc la valeur à donner à hashcat est 1000 jusque là rien de nouveau mais petite subtilité quand on lance la commande avec la wordlist rockyou on se rend compte que le mot de passe n est pas trouvé ce qui veut dire que notre dictionnaire ne contient pas la bonne valeur.</p>
+<p>Dans ce cas on peut tenter d autres dictionnaires mais en fouillant un peu dans le manuel de hashcat on découvre une option intéressante la commande -g qui permet d appliquer des règles aléatoires sur chaque mot de passe de la wordlist on choisit combien de règles on veut et ça génère des variations automatiques majuscules chiffres ajoutés etc ce qui augmente les chances de tomber sur le bon mot de passe.</p>
+<p>Une fois lancé le processeur chauffe bien mais le mot de passe finit par tomber preuve que la simple wordlist ne suffisait pas et qu il fallait enrichir les possibilités.</p>
+<p>PS : une attaque hybride fonctionne aussi avec l option -a 6 qui combine dictionnaire et bruteforce pour couvrir encore plus de cas.</p>
+      </div>
+
+      <!-- Hash SHA‑2 -->
+      <button class="accordion-toggle">Hash SHA‑2</button>
+      <div class="accordion-content">
+        <p>Ce challenge peut être un peu piégeux car le titre laisse penser qu on est face à un hash SHA256 mais quand on lance hashcat dessus il nous dit que le hash n est pas reconnu ce qui met le doute est ce que le hash est corrompu ou est ce que ce n est pas vraiment du SHA256.</p>
+<p>Pour vérifier on regarde la structure d un hash SHA256 il doit faire 256 bits soit 64 caractères hexadécimaux en sortie chaque caractère est compris entre 0 et F donc si on voit autre chose c est suspect en regardant de plus près le hash fourni on remarque un k qui n a rien à faire là puisque l hexadécimal s arrête à F.</p>
+<p>On retire donc ce caractère étrange et on teste le hash corrigé dans un moteur de recherche par flemme plutôt que de lancer un bruteforce et on tombe directement sur le mot de passe en clair.</p>
+<p>Le flag demandé n est pas le mot de passe brut mais son empreinte en SHA1 donc on calcule simplement.</p>
+<p>echo -n "4dM1n" | sha1sum</p>
+<p>Ce qui donne le résultat attendu et valide le challenge.</p>
+      </div>
+
+      <!-- Chiffrement par décalage -->
+      <button class="accordion-toggle">Chiffrement par décalage</button>
+      <div class="accordion-content">
+        <p>Ce challenge est une variante du chiffre de César mais appliqué non pas seulement aux 26 lettres de l alphabet mais à l ensemble des valeurs possibles d un octet ce qui élargit considérablement le champ des rotations possibles.</p>
+<p>Le site dcode fr permet de résoudre ça très facilement en lançant un bruteforce sur tous les décalages possibles on colle la chaîne donnée.</p>
+<p>L|k€y+^zo‚€kvsno|k€omvozk*cyvksr</p>
+<p>Le moteur teste chaque décalage et on obtient un résultat lisible avec un décalage de 10.</p>
+<p>Bra5o ! Tu peu5 5alider a5ec le pass Yolaihu</p>
+<p>Le principe est donc le même que pour un César classique mais généralisé à l ASCII complet et la solution tombe rapidement grâce au bruteforce.</p>
+      </div>
+
+      <!-- CISCO Salted Password -->
+      <button class="accordion-toggle">CISCO Salted Password</button>
+      <div class="accordion-content">
+        <p>Pour ce challenge on commence par identifier le hash avec hashid qui nous indique qu il s agit d un MD5crypt ce format est directement supporté par hashcat avec le type 500.</p>
+<p>On lance donc la commande classique en brute force avec le mode 0 et la wordlist rockyou.</p>
+<p>hashcat --hash-type 500 --attack-mode 0 ./h /usr/share/wordlists/rockyou.txt</p>
+<p>Le programme va tester les entrées de la wordlist contre le hash MD5crypt et finir par trouver la correspondance ce qui valide le challenge et montre que même avec un salt le mot de passe reste vulnérable si la wordlist contient la bonne valeur.</p>
+      </div>
+
+      <!-- Décomposition pixelisée -->
+      <button class="accordion-toggle">Décomposition pixelisée</button>
+      <div class="accordion-content">
+        <p>Dès le départ l indice nous met sur la voie ce n est pas du binaire mais une représentation graphique avec des couleurs le 0 correspond au blanc #FFFFFF et le 1 au noir #000000.</p>
+<p>On récupère donc la suite de nombres donnée par le challenge et plutôt que de chercher à l interpréter comme du texte ou un encodage on la traduit directement en pixels chaque chiffre devient une couleur et on recompose l image.</p>
+<p>Pour ça j ai utilisé un outil simple comme paint j ai placé pixel par pixel la suite de valeurs et l image se dessine progressivement jusqu à révéler le message ou le motif attendu.</p>
+      </div>
+
+      <!-- Fichier PKZIP -->
+      <button class="accordion-toggle">Fichier PKZIP</button>
+      <div class="accordion-content">
+        <p>Le challenge nous donne un fichier zip protégé par mot de passe la première étape est donc de transformer ce zip en un format exploitable par un outil de cracking pour ça on utilise zip2john qui est vraiment incontournable dans ce genre de cas.</p>
+<p>zip2john.exe ch5.zip > ch52.john</p>
+<p>Cette commande génère un hash correspondant au mot de passe du zip.</p>
+      </div>
+
+      <!-- Substitution monoalphabétique César -->
+      <button class="accordion-toggle">Substitution monoalphabétique César</button>
+      <div class="accordion-content">
+        <p>Le titre du challenge peut induire en erreur car on pense directement au chiffre de César classique mais ici il s agit d une substitution monoalphabétique ce qui veut dire qu une lettre est remplacée par une autre selon un alphabet de correspondance défini et pas simplement par un décalage fixe.</p>
+<p>On comprend donc que chaque caractère du texte chiffré correspond à une lettre différente de l alphabet clair et qu il faut retrouver la table de correspondance pour reconstituer le message.</p>
+<p>Pour ça on utilise l outil en ligne dcode fr qui propose directement une section dédiée à la substitution monoalphabétique on colle le texte chiffré on lance l analyse et l outil teste différentes correspondances jusqu à produire un texte lisible.</p>
+<p>Le challenge se résout ainsi assez rapidement une fois qu on a identifié qu il ne s agissait pas d un César simple mais bien d une substitution lettre à lettre et le flag apparaît.</p>
+  <a href="https://www.dcode.fr/substitution-monoalphabetique" class="btn-rapport" target="_blank">Dcode</a>
+
+      </div>
+
+      <!-- Substitution polyalphabétique Vigenère -->
+      <button class="accordion-toggle">Substitution polyalphabétique Vigenère</button>
+      <div class="accordion-content">
+        <p>Le titre du challenge annonce directement la couleur on est sur un chiffrement de type Vigenère qui est une substitution polyalphabétique c est à dire qu au lieu d utiliser une seule clé de décalage comme pour César on utilise une clé composée de plusieurs lettres chaque lettre de la clé détermine un décalage différent et le texte est chiffré en boucle avec cette clé.</p>
+<p>Pour comprendre un peu mieux le fonctionnement on peut se renseigner rapidement sur le principe du Vigenère puis passer à la pratique en utilisant un outil en ligne de décryptage par exemple le site mygeocachingprofile qui propose un décodeur dédié on colle le texte chiffré et on lance l analyse.</p>
+<p>Le résultat est presque lisible mais pas totalement la première clé proposée n est pas la bonne on obtient un texte partiellement compréhensible ce qui montre qu on est proche de la solution mais qu il faut affiner par analyse on suppose que la première phrase commence par un autre s est fait prendre aujourd hui ce qui permet de chercher dans les clés générées et de tomber sur la clé numéro 61 qui est thementorthementorthementor en réalité la clé est simplement thementor répétée trois fois ce qui revient au même.</p>
+<p>Une fois la bonne clé identifiée le texte se révèle être un extrait du célèbre Hacker Manifesto en cherchant sur le web on trouve que l auteur est Loyd Blankenship et c est ce nom qui sert de mot de passe pour valider le challenge.</p>
+      </div>
+
+
+  </main>
+
+  <footer>
+    <p>© 2025 Théo OGER — Tous droits réservés</p>
+  </footer>
+
+</body>
+</html>

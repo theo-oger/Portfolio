@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos - Portfolio Théo OGER</title>
+  <link rel="stylesheet" href="../../css/root-me_pages.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<script src="../../js/veille.js"></script>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="../Acceuil.html">Accueil</a></li>
+        <li><a href="../apropos.html">À propos</a></li>
+        <li><a href="../projets.html">Projets</a></li>
+        <li><a href="../veille.html">Veille</a></li>
+        <li><a href="root-me.html" class="active">Root Me</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="veille-container">
+
+    <section class="accordion">
+
+      <!-- EXIF - Metadata -->
+      <button class="accordion-toggle">EXIF - Metadata</button>
+      <div class="accordion-content">
+  <p>ExifTool est un outil en ligne de commande qui sert à extraire les métadonnées d’un fichier image. En lançant la commande sur l’image donnée on obtient les informations EXIF dont les coordonnées GPS. Ces données révèlent la latitude et la longitude exactes du lieu de prise de vue. Une fois récupérées il suffit de les entrer dans Google Earth pour localiser précisément l’endroit et visualiser le terrain.</p>
+</div>
+
+<!-- Point à la Ligne -->
+      <button class="accordion-toggle">Point à la Ligne</button>
+      <div class="accordion-content">
+  <p>En lisant le titre et l’énoncé on comprend rapidement que le challenge va tourner autour des points. En ouvrant l’image on remarque qu’ils sont présents un peu partout dans le texte, mais sans respecter la ponctuation habituelle. Un détail important saute aux yeux, la première ligne ne contient aucun point.</p>
+<p>À partir de là l’idée est de regarder attentivement la position des points et de tester différentes hypothèses. En observant de près on se rend compte que chaque point correspond à une lettre placée juste au-dessus. En relevant systématiquement ces lettres et en les rassemblant on obtient le message caché.</p>
+</div>
+
+<!-- Steganomobile -->
+      <button class="accordion-toggle">Steganomobile</button>
+      <div class="accordion-content">
+  <p>En lisant le titre et l’énoncé on comprend que le challenge va tourner autour d’un système de chiffres. La suite donnée correspond en réalité à une écriture réalisée avec un ancien téléphone portable, comme le Nokia 3310.</p>
+<p>À l’époque, les claviers de ces téléphones utilisaient le système multi‑tap. Chaque touche représentait plusieurs lettres et il fallait appuyer plusieurs fois pour obtenir la bonne. Par exemple la touche 2 donnait A, B ou C selon le nombre de pressions, la touche 3 donnait D, E ou F, et ainsi de suite.</p>
+<p>En traduisant la suite de chiffres selon ce principe on reconstitue le message caché. C’est donc une énigme basée sur l’écriture T9 ou multi‑tap des premiers téléphones portables.</p>
+</div>
+
+<!-- Twitter Secret Message -->
+      <button class="accordion-toggle">Twitter Secret Message</button>
+      <div class="accordion-content">
+  <p>Après quelques recherches on découvre que certaines personnes utilisaient Twitter pour s’échanger des messages cachés à des fins illégales. Pour cela elles employaient un algorithme de chiffrement capable de dissimuler un texte dans un autre, une technique de stéganographie appliquée aux tweets.</p>
+<p>Pour résoudre le challenge il suffit d’utiliser l’outil en ligne prévu à cet effet. Le site holloway.co.nz/steg/ permet de décoder ce type de messages et de révéler le contenu dissimulé.</p>
+</div>
+
+<!-- TXT George et Alfred -->
+      <button class="accordion-toggle">TXT George et Alfred</button>
+      <div class="accordion-content">
+  <p>Une énigme assez connue mais qui reste un bon exemple de stéganographie. Le texte présenté prend la forme d’une conversation entre George et Alfred. En réalité, le message caché se découvre simplement en lisant une ligne sur deux.</p>
+<p>La solution quant à elle s’obtient en prenant uniquement le premier mot de chaque ligne sélectionnée. On reconstitue ainsi le message dissimulé.</p>
+<p>Pour la culture générale il est utile de préciser que ce texte est un canular et non une véritable conversation.</p>
+</div>
+
+<!-- WAV – Analyse de Bruit -->
+      <button class="accordion-toggle">WAV – Analyse de Bruit</button>
+      <div class="accordion-content">
+  <p>Dans ce challenge nous avons un fichier sonore qui paraît accéléré et brouillé. Pour l’analyser j’ai utilisé Audacity, ce qui m’a permis de ralentir la piste afin de rendre le son plus compréhensible.</p>
+<p>En plus de cette étape j’ai inversé le son, ce qui a révélé le message caché. </p>
+</div>
+
+<!-- Poem From a Space -->
+      <button class="accordion-toggle">Poem From a Space</button>
+      <div class="accordion-content">
+  <p>En regardant l’indice du challenge on comprend qu’il est question d’un langage ésotérique. Le titre lui‑même donne une bonne piste puisqu’il mentionne l’espace, et la mise en forme étrange du poème confirme cette idée.</p>
+<p>Après une rapide recherche on identifie le langage Whitespace, un langage de programmation ésotérique qui n’utilise que les espaces, les tabulations et les retours à la ligne pour coder des instructions. En utilisant un décodeur en ligne adapté à Whitespace, on parvient à révéler directement la solution cachée dans le poème.</p>
+</div>
+
+<!-- Point Jaune -->
+      <button class="accordion-toggle">Point Jaune</button>
+      <div class="accordion-content">
+  <p>Ce challenge repose sur les fameux points jaunes laissés par certaines imprimantes. Ces micro‑traces permettent d’identifier la marque et le modèle de l’appareil, et sont utilisées comme une forme de marquage invisible.</p>
+<p>Pour analyser l’image j’ai appliqué un filtre bleu afin de rendre ces points plus visibles. Ensuite, avec l’aide du guide de décodage correspondant, j’ai pu interpréter le motif et retrouver le flag caché.</p>
+</div>
+
+<!-- Exif Miniature -->
+      <button class="accordion-toggle">Exif Miniature</button>
+      <div class="accordion-content">
+  <p>J’ai commencé par lancer un strings sur mon fichier et j’ai remarqué quelques informations intéressantes. Cela m’a mis sur la piste qu’il y avait des données cachées dans l’image.</p>
+<p>J’ai ensuite utilisé ExifTool avec la commande :</p>
+<p>Code : exif -e ch10.jpg</p>
+      <p>- exif : c’est l’appel à l’outil ExifTool qui permet de lire ou modifier les métadonnées d’un fichier.</p>
+      <p>- -e : ce paramètre indique à ExifTool d’extraire les données intégrées (Embedded data). Dans ce challenge, cela permet de révéler des informations supplémentaires cachées dans l’image.</p>
+      <p>- ch10.jpg : c’est simplement le nom du fichier sur lequel on applique la commande.</p>
+<p>En exécutant la commande une première fois j’ai obtenu un élément, puis en la relançant une seconde fois une autre information est apparue. Enfin, en répétant l’opération une dernière fois j’ai trouvé le flag.</p>
+</div>
+
+<!-- Mimic Dummy Sight -->
+      <button class="accordion-toggle">Mimic Dummy Sight</button>
+      <div class="accordion-content">
+  <p>En consultant la page des ressources du challenge, on découvre le commentaire d’un utilisateur qui présente un script appelé Plainsight. Ce script permet de cacher un message dans un texte lisible en utilisant le contenu d’un autre fichier comme clé.</p>
+<p>Dans l’exemple fourni par l’auteur, on remarque qu’un des paramètres utilisés est nommé ciphertext, ce qui correspond exactement au fichier du challenge. Le fonctionnement repose sur un second fichier, plaintext, qui sert de clé pour chiffrer ou déchiffrer le message.</p>
+<p>Le fichier ciphertext étant le texte chiffré, on tente de le déchiffrer en utilisant plaintext comme clé. Les commandes exécutées sont les suivantes :</p>
+<p>$ cat ciphertext | plainsight -m decipher -f plaintext > deciphered</p>
+<p>$ cat deciphered</p>
+      <p>cat ciphertext : affiche le contenu du fichier chiffré.</p>
+      <p>| plainsight -m decipher -f plaintext : envoie ce contenu au script Plainsight. L’option -m decipher indique qu’on veut déchiffrer, et -f plaintext précise le fichier clé à utiliser.</p>
+      <p>> deciphered : redirige la sortie vers un nouveau fichier nommé deciphered.</p>
+      <p>cat deciphered : permet enfin de lire le message déchiffré.</p>
+<p>La solution apparaît alors clairement dans le fichier deciphered.</p>
+</div>
+
+<!-- WAV Analyse Spectrale -->
+      <button class="accordion-toggle">WAV Analyse Spectrale</button>
+      <div class="accordion-content">
+  <p>Le titre du challenge indique clairement qu’il faut analyser le spectrogramme du fichier audio. Pour cela, j’ai utilisé directement l’outil en ligne proposé par Dcode, ce qui permet de générer et lire un spectrogramme sans avoir besoin d’installer de logiciel supplémentaire.</p>
+<p>En important le fichier sur la page dcode.fr/analyse-spectrale, le spectrogramme se révèle et laisse apparaître le message caché.</p>
+</div>
+
+<!-- APNG Just a APNG -->
+      <button class="accordion-toggle">APNG Just a APNG</button>
+      <div class="accordion-content">
+  <p>Pour ce challenge j’ai utilisé l’outil apngdis afin de décortiquer le fichier animé. La commande :</p>
+<p>apngdis ch21.apng</p>
+<p>Permet de désassembler l’APNG en ses différentes images et d’afficher les informations associées, comme le temps d’apparition entre chaque frame.</p>
+<p>En observant ces données, on remarque que certaines valeurs sont étranges car elles ne correspondent pas toutes à la même durée. C’est la seule piste exploitable et elle attire l’attention.</p>
+<p>En regroupant ces valeurs et en les interprétant comme des codes ASCII, on obtient des caractères lisibles. Avec l’aide du tableau ASCII, on reconstitue le message et on trouve le flag.</p>
+</div>
+
+<!-- Crypt-Art -->
+      <button class="accordion-toggle">Crypt-Art</button>
+      <div class="accordion-content">
+  <p>On commence par télécharger le fichier nomb.</p>
+<p>Premier réflexe, lancer la commande strings pour voir s’il y a du texte lisible :</p>
+<p>strings ch8.ppm</p>
+<p>Le résultat affiche :</p>
+<p>70 50</p>
+<p>Hi ! Welcome to </p>
+<p>esoteric programming !</p>
+<p>The encrypted pass is : </p>
+<p>EPCQFBXKWURQCTXOIPMNV</p>
+<p>Bienvenue a la program</p>
+<p>mation esoterique !</p>
+<p>Le pass encrypte est :</p>
+<p>EPCQFBXKWURQCTXOIPMNV</p>
+<p>On obtient déjà le mot de passe chiffré, mais il manque la clé.</p>
+<p>L’indice “Esoteric programming” nous oriente vers les langages ésotériques. Une recherche mène au langage Piet, qui transforme des images matricielles en programmes.</p>
+<p>En cherchant “decrypt programming language piet”, on tombe sur le site npiet-execute.</p>
+<p>En uploadant l’image sur ce site, on récupère la clé :</p>
+<p>key is EYJFRGTT</p>
+<p>Dernière étape, déchiffrer le mot de passe avec un décodeur Vigenère. On utilise la clé obtenue et le texte chiffré EPCQFBXKWURQCTXOIPMNV. Le décodeur révèle alors le mot de passe en clair, ce qui clôt le challenge avec succès.</p>
+</div>
+
+<!-- ELFx64 Duality -->
+      <button class="accordion-toggle">ELFx64 Duality</button>
+      <div class="accordion-content">
+  <p>En téléchargeant le challenge on obtient deux fichiers, un binaire nommé innocent.bin et une image happy.jpg. La première étape consiste à utiliser l’outil steg86 sur le binaire afin de récupérer le message caché. L’extraction révèle une passphrase :</p>
+<p>th4nk_Rust_y0u_c4n_unh1d4_m4_n0w</p>
+<p>Avec cette passphrase on utilise steghide pour extraire les données dissimulées dans l’image :</p>
+<p>steghide extract -sf happy.jpg</p>
+<p>La commande extract indique que l’on veut récupérer les données cachées et -sf précise le fichier source, ici l’image happy.jpg. Le résultat est un fichier flag.png.</p>
+<p>On analyse ensuite ce fichier avec binwalk :</p>
+<p>binwalk --dd ".*" flag.png</p>
+<p>binwalk sert à explorer les fichiers binaires et à détecter des données ou fichiers intégrés. L’option --dd ".*" demande d’extraire toutes les données trouvées, peu importe leur type. On obtient alors un fichier contenant du texte en hexadécimal.</p>
+<p>Ce texte est converti en clair grâce à CyberChef en utilisant la fonction From Hex, qui traduit une suite hexadécimale en caractères ASCII.</p>
+<p>Enfin, on lit le fichier obtenu avec une commande simple comme :</p>
+<p>cat output.txt</p>
+</div>
+
+<!-- PDF Embedded -->
+      <button class="accordion-toggle">PDF Embedded</button>
+      <div class="accordion-content">
+  <p>En lançant la commande strings sur le fichier PDF, on découvre la mention d’un fichier caché nommé beers.txt. Cela indique qu’il y a un contenu embarqué dans le document.</p>
+<p>Pour extraire ce fichier, j’ai utilisé pdfextract :</p>
+<p>pdfextract epreuve_BAC_2004.pdf</p>
+<p>Cette commande permet d’extraire les fichiers intégrés dans un PDF. Le résultat est un gros bloc de données encodées en Base64.</p>
+<p>En décodant ce contenu, on obtient un fichier qui reste illisible. Pour identifier sa nature, j’ai utilisé la commande :</p>
+<p>file output</p>
+<p>La commande file sert à analyser un fichier et à déterminer son type. Ici, elle indique qu’il s’agit d’une image PNG.</p>
+<p>Il suffit alors de renommer le fichier avec l’extension .png et de l’ouvrir pour révéler le flag.</p>
+</div>
+
+<!-- Kitty Spy -->
+      <button class="accordion-toggle">Kitty Spy</button>
+      <div class="accordion-content">
+  <div class="article-card">
+          <h4>Première étape</h4>
+          <p>Ce cha(t)llenge débute sur une image un peu lourde que l’on va s’empresser de désosser à l’aide d’un binwalk -e.</p>
+<p>On extrait ainsi 4 archives ZIP - les 3 dernières étant protégés par mot de passe - nommés "step1" à "step4". Dans l’archive "step1", on retrouve un fichier README et une image "route.png".</p>
+<p>Le contenu du fichier README#1 nous indique :</p>
+<p>Something is hidden in this picture, I’m pretty sure of this... But what ?</p>
+<p>L’image en question nous montre une carte du monde avec des flèches indiquant des déplacements.</p>
+<p>A l’aide de l’outil stegsolve sur l’image, on retrouve des chaines de 3 caractères cachés aux origines des flèches en appliquant divers filtres RGB. On concatène le tout et on obtient le premier mot de passe : f1rstStepi5DoN3</p>
+        </div>
+
+        <div class="article-card">
+          <h4>Deuxième étape</h4>
+          <p>Avec le précédent mot de passe, on peut désormais décompresser l’archive "step2.zip".
+Cette fois-ci, on a le droit à un fichier audio au format WAV en plus d’un README#2. Ce dernier contient le texte suivant :</p>
+<p>Well ... Now that we know that, we must find the next step, we success to record a sound from his micro !</p>
+<p>Maybe a trap to escape us ? I hope not ! We need to find how to use this sound, EVERYTHING can be a clue ...</p>
+<p>Copyright © - 2017 - 18574115dbcd47d71e7eb9da74e45bf2</p>
+<p>Mais quelle est donc cette étrange chaine de caractères à la fin ?</p>
+<p>Un petit tour sur crackstation.net permet d’accéder à la vérité sur ce hash md5 et afficher un magnifique "meowmeowmeowmeow"</p>
+<p>Bien essayé, mais ce n’est pas le mot de passe pour accéder à la prochaine étape. On garde l’indice de côté pour le moment...</p>
+<p>On vient alors s’intéresser au fichier audio "monster.wav". Audacity, Sonic Visualiser ou Deepsound ne vous serons d’aucune aide puisqu’il s’agit en fait d’un simple steghide extract -sf avec la clé "meowmeowmeowmeow" sur le fichier pour laisser apparître le deuxième mot de passe : s3c0nDSt3pIsAls0D0n3</p>
+        </div>
+
+        <div class="article-card">
+          <h4>Troisième étape</h4>
+          <p>On décompresse l’archive n°3 avec le second mot de passe et on se retrouve cette fois face à un répertoire contenant les ressources d’un site web et un petit README#3 :</p>
+<p>Wow ... Now we need to find what’s hidden in this suspected website, we know that the guy get information from this site ...</p>
+<p>BUt WhERe AnD HoW ?</p>
+<p>La syntaxe particulière de la dernière phrase laisse facilement imaginer que la typographie va avoir un rôle à jouer ici.</p>
+<p>En parcourant rapidement les ressources, on s’apperçoit dans le fichier LICENCE.md qu’un bout de langage brainfuck à été inséré. Une fois compilé, cela nous donne :</p>
+<p>All you need to know is that you will have to find a QRCode to have the flag !</p>
+<p>Il s’agit en effet d’un indice pour la prochaine étape. On revient alors sur le fichier index.html que l’on ouvre dans un navigateur, pour ensuite étudier le code source da la page.
+On se rend compte que les balises de la page sont écrites de FaçoN BiZArRe, et ainsi on peut en déduire un système binaire sur ces balises en fonction des majuscules et minuscules. La démarche est de récupérer toutes ces balises sans les textes associés, de les concaténer, puis de remplacer les majuscules par des ’0’ et les minuscules par des ’1’. Convertie en chaine ASCII, la chaine binaire nous donne le précieux mot de passe pour accéder à l’archive "step4.zip" : n3xTSt3pIsTh3L4st</p>
+        </div>
+
+        <div class="article-card">
+          <h4>Quatrième étape</h4>
+          <p>Dans cette dernière archive, on retrouve un fichier image au format PNG muni du README indiquant :</p>
+<p>The last step !</p>
+<p>Let’s go and find the flag !</p>
+<p>Oh ... if nothing come to your mind for this step, don’t hesitate to check on previous challenges to have some clues !</p>
+<p>On sait que l’on doit (probablement) retrouver un QRCode comme annoncé dans l’indice de l’étape 3.</p>
+<p>Très simple, cette dernière étape se résout de la même manière que la première, c’est-à-dire en utilisant stegsolve.</p>
+<p>Après deux premiers faux QRCODE dans les filtres LSB rouge et vert, c’est le filtre bleu qui nous donne le bon QR code.</p>
+<p><explique les commande effectuer et les notions de stegnalo></p>
+        </div>
+</div>
+
+<!-- LSB Least Significant Bit -->
+      <button class="accordion-toggle">LSB Least Significant Bit</button>
+      <div class="accordion-content">
+  <p>Le principe du LSB repose sur l’utilisation des bits de poids faible dans une image pour y cacher des informations. Ces bits sont considérés comme insignifiants car leur modification n’altère pas visiblement l’image, mais ils peuvent servir de support pour dissimuler un message.</p>
+<p>Pour ce challenge, un outil écrit en Python avec le package Tinyscript a été utilisé. Cet outil, appelé stegolsb, permet de tester automatiquement différentes configurations de stéganographie LSB, par exemple en prenant un bit sur deux, afin de retrouver une chaîne de caractères lisible.</p>
+<p>Commande exécutée :</p>
+<p>stegolsb bruteforce ch9.png</p>
+<p>Cette commande lance une recherche par force brute sur l’image ch9.png pour extraire un message caché. Le résultat affiché est :</p>
+<p>12:34:56 [INFO] 16:TFdmMDdyc01iaUE2</p>
+<p>On obtient une chaîne encodée en Base64. Pour la décoder, on utilise :</p>
+<p>echo -en "TFdmMDdyc01iaUE2" | base64 -d</p>
+      <p>- echo -en : affiche la chaîne en respectant les caractères spéciaux et sans retour à la ligne.</p>
+      <p>- | base64 -d : envoie la chaîne à la commande base64 qui la décode (-d pour decode).</p>
+</div>
+
+<!-- PNG Pixel Indicator -->
+      <button class="accordion-toggle">PNG Pixel Indicator</button>
+      <div class="accordion-content">
+  <p>Le principe du pixel indicator en stéganographie repose sur l’idée que certains pixels d’une image ne servent pas uniquement à afficher une couleur mais peuvent aussi être utilisés comme indicateurs pour signaler où se trouvent les données cachées. Plutôt que de modifier directement les bits de poids faible comme dans la méthode LSB, on choisit des pixels spécifiques dont la position ou la valeur sert de repère. Ces pixels indiquent à l’outil de décodage comment lire ou reconstruire le message dissimulé.</p>
+<p>Dans ce challenge j’ai utilisé l’outil stégopit disponible sur GitHub. C’est un script Python qui automatise l’extraction des données cachées en exploitant cette technique de pixel indicator. L’approche est similaire à celle du précédent challenge avec LSB, mais ici le script se base sur les pixels indicateurs pour retrouver la chaîne de caractères cachée.</p>
+</div>
+
+<!-- Base Jumper -->
+      <button class="accordion-toggle">Base Jumper</button>
+      <div class="accordion-content">
+  <p>On commence par analyser l’image avec exiftool :</p>
+<p>exiftool ch15.jpg</p>
+<p>Cette commande permet de lire les métadonnées EXIF d’un fichier. Dans le champ</p> 
+<p>Comment, on repère une chaîne qui ressemble fortement à du Base64.</p>
+<p>En la décodant, on obtient le texte de la RFC 4648, qui décrit les encodages Base32 et Base64. En lisant cette RFC, on apprend qu’il est possible de cacher de l’information dans les bits de padding, matérialisés par le caractère =.</p>
+<p>Pour exploiter cette technique, on utilise le script Python paddinganograph.py disponible sur le gist mentionné. La commande suivante est exécutée :</p>
+<p>python3 paddinganograph.py -s "." -f "Comment" < ch15.jpg</p>
+      <p>- -s "." : indique le séparateur utilisé pour l’extraction.</p>
+      <p>- -f "Comment" : précise le champ EXIF à analyser, ici le champ Comment.</p>
+      <p>- < ch15.jpg : redirige le fichier image comme entrée du script.</p>
+<p>Le script retourne des données en Base32. Si on les décode directement, on obtient un extrait de Wikipédia sur le Base jump, mais ce texte n’apporte rien de particulier. Comme pour le cas du Base64, on soupçonne que l’information est cachée dans le padding du Base32.</p>
+<p>On modifie alors les métadonnées EXIF de l’image (par exemple avec un éditeur en ligne) pour déplacer les données dans le champ Description. On relance le script avec l’option -e pour préciser l’encodage :</p>
+<p>python3 paddinganograph.py -s "." -e "base32" -f "Description" < ch15.jpg</p>
+      <p>- -e "base32" : indique au script que l’encodage utilisé est Base32.</p>
+      <p>- -f "Description" : précise le champ EXIF à analyser, cette fois Description.</p>
+<p>Le script révèle alors les données cachées dans le padding du Base32, ce qui permet de récupérer le flag.</p>
+</div>
+
+
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Théo OGER — Tous droits réservés</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,208 @@
+/* === BASE === */
+body {
+  margin: 0;
+  background-color: #1F1F1F;
+  color: white;
+  font-family: "Fira Code", monospace;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: "Poppins", sans-serif;
+  color: #86BBD8;
+  margin: 0 0 20px 0;
+}
+
+h2 {
+  text-align: center;
+}
+
+p {
+  color: #ddd;
+  line-height: 1.7;
+}
+
+/* === HEADER === */
+header {
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #ccc;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: #86BBD8;
+  font-weight: bold;
+}
+
+/* === SECTIONS === */
+section {
+  margin: 60px auto;
+  max-width: 1000px;
+  padding: 30px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  backdrop-filter: blur(10px);
+}
+
+/* === BUTTON === */
+.cv-button {
+  display: inline-block;
+  margin: 15px auto 0;
+  padding: 12px 24px;
+  border: 2px solid #ffcc66;
+  color: #ffcc66;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.3s;
+  text-decoration: none;
+  text-align: center;
+}
+
+.cv-button:hover {
+  background: #ffcc66;
+  color: #111;
+  transform: scale(1.05);
+}
+
+.cv-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+/* === PARCOURS === */
+.parcours {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* === CARTES ROOT ME === */
+.card {
+  display: flex;           /* pour effet hover */
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px); /* effet soulèvement identique à Projets */
+}
+
+/* === CONTENU INTERNE DE LA CARTE === */
+.card-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 15px;
+  border-left: 4px solid;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.card-inner .title {
+  flex: 0 0 150px;      /* fixe la largeur du titre à gauche */
+  text-align: left;
+  color: #86BBD8;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.card-inner .text {
+  flex: 1;              /* texte au centre */
+  text-align: left;
+  color: #ddd;
+  line-height: 1.4;
+}
+
+.card-inner img {
+  width: 250px;          /* image à droite */
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Couleurs par type */
+.card.red .card-inner { border-color: #C33C54; }
+.card.blue .card-inner { border-color: #5ec4ff; }
+.card.yellow .card-inner { border-color: #ffcc66; }
+
+/* === FADE-IN === */
+.fade-in {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === FOOTER === */
+footer {
+  text-align: center;
+  padding: 30px 0;
+  background-color: #111;
+  color: #777;
+  font-size: 0.9rem;
+  margin-top: 80px;
+}
+
+footer p {
+  color: #777;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  nav ul {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Carte passe en colonne sur mobile */
+  .card-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .card-inner .title,
+  .card-inner .text {
+    text-align: center;
+  }
+
+  .card-inner img {
+    width: 100%;
+    max-width: 400px;
+  }
+}

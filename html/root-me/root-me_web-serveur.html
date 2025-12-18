@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos - Portfolio Théo OGER</title>
+  <link rel="stylesheet" href="../../css/root-me_pages.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<script src="../../js/veille.js"></script>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="../Acceuil.html">Accueil</a></li>
+        <li><a href="../apropos.html">À propos</a></li>
+        <li><a href="../projets.html">Projets</a></li>
+        <li><a href="../veille.html">Veille</a></li>
+        <li><a href="root-me.html" class="active">Root Me</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="veille-container">
+
+    <section class="accordion">
+
+      <!-- HTML - Code Source -->
+      <button class="accordion-toggle">HTML - Code Source</button>
+      <div class="accordion-content">
+  <p>Dans ce challenge, le titre Code source donne déjà l’indice principal : il faut inspecter directement le contenu HTML de la page.</p>
+<p>En ouvrant le code source (clic droit → Afficher le code source de la page ou via F12 → onglet Sources.</p>
+</div>
+
+<!-- HTTP - Contournement de Filtrage IP -->
+      <button class="accordion-toggle">HTTP - Contournement de Filtrage IP</button>
+      <div class="accordion-content">
+  <p>J’utilise Burp suit pour pouvoirs observer les requêtes ainsi que modifier les requetes http. Savant que il filtre grâce aux IP publique ou privées j’ai donc décider d’ajouter dans ma requête http :</p>
+<p>X-Forwarded-For: 10.0.0.1</p>
+<p>Afin de simuler une intrusion avec une adresse ip privée.</p>
+</div>
+
+<!-- HTTP - Open Redirect -->
+      <button class="accordion-toggle">HTTP - Open Redirect</button>
+      <div class="accordion-content">
+  <p>Dans ce challenge le serveur applique un filtrage basé sur l’adresse IP du client Pour contourner ce mécanisme on intercepte la requête avec Burp Suite et on ajoute un en‑tête HTTP :</p>
+<p>X-Forwarded-For: 10.0.0.1</p>
+<p>Cet en‑tête est utilisé par les proxies pour indiquer l’adresse IP réelle du client Si le serveur se fie uniquement à cette valeur il considère que la requête provient d’un réseau interne privé et autorise l’accès Le filtrage est ainsi contourné et l’intrusion simulée avec une adresse IP privée.</p>
+</div>
+
+<!-- HTTP – User Agent -->
+      <button class="accordion-toggle">HTTP – User Agent</button>
+      <div class="accordion-content">
+  <p>Dans ce challenge le serveur applique un filtrage basé sur l’en‑tête User‑Agent des requêtes HTTP Le User‑Agent est une chaîne envoyée par le navigateur ou l’outil qui décrit le client utilisé (par exemple Chrome, Firefox, curl) Si le serveur ne laisse passer que certaines valeurs il suffit de modifier cet en‑tête pour contourner le filtrage.</p>
+<p>La commande utilisée est :</p>
+<p>curl -v --header "User-Agent: admin" -X GET http://challenge01.root-me.org/web-serveur/ch2/</p>
+      <p>- curl est un outil en ligne de commande qui permet d’envoyer des requêtes HTTP</p>
+      <p>- -v active le mode verbeux pour afficher les détails de la requête et de la réponse</p>
+      <p>- --header "User-Agent: admin" ajoute ou remplace l’en‑tête User‑Agent par la valeur admin</p>
+      <p>- -X GET précise que l’on envoie une requête GET</p>
+      <p>- Enfin l’URL cible est celle du challenge</p>
+</div>
+
+<!-- Mot de Passe Faible -->
+      <button class="accordion-toggle">Mot de Passe Faible</button>
+      <div class="accordion-content">
+  <p>Dans ce challenge le serveur protège une ressource par un mot de passe mais celui‑ci est volontairement faible La solution classique consiste à utiliser un outil comme Hydra pour lancer une attaque par force brute sur le champ d’authentification en testant un grand nombre de combinaisons automatiquement.</p>
+<p>Cependant il n’est pas nécessaire d’aller jusque‑là car les mots de passe faibles sont souvent présents dans les listes des mots de passe les plus utilisés dans le monde En récupérant une telle liste et en testant manuellement ou avec un script simple les 100 premiers mots de passe on tombe rapidement sur le bon mot de passe qui permet de valider le challenge.</p>
+</div>
+
+<!-- PHP - Injection de Commande -->
+      <button class="accordion-toggle">PHP - Injection de Commande</button>
+      <div class="accordion-content">
+  <p>Dans ce challenge le site propose un formulaire qui semble interroger un serveur et afficher le résultat attendu En testant une commande simple comme ls on constate que cela ne fonctionne pas car le champ semble attendre une adresse IP composée uniquement de chiffres.</p>
+<p>Cependant aucune erreur n’est renvoyée ce qui laisse penser que la valeur saisie est directement passée à une commande système côté serveur On peut alors tenter une injection en combinant une adresse IP valide avec une commande système grâce à l’opérateur &&.</p>
+<p>Exemple :</p>
+<p>Code : 127.0.0.0 && ls</p>
+      <p>- 127.0.0.0 correspond à une adresse IP locale acceptée par le formulaire</p>
+      <p>- && ls permet d’exécuter la commande ls immédiatement après l’appel initial</p>
+      <p>- Le serveur exécute donc la commande et affiche la liste des fichiers présents</p>
+<p>Une fois le nom du fichier trouvé il suffit de le lire avec :</p>
+<p>Code : 127.0.0.0 && cat fichier.txt</p>
+</div>
+
+<!-- API - Broken Access -->
+      <button class="accordion-toggle">API - Broken Access</button>
+      <div class="accordion-content">
+  <p>Je vois au titre de l’exercice qu’il s’agit ici d’accéder à une ressource à laquelle nous ne devrions pas avoir accès.</p>
+<p>Je consulte d’abord les différents endpoints exploitables, c’est à dire ceux permettant de renseigner un ou plusieurs RouteParameters.</p>
+Il n’y a que le endpoint GET api/user/< user_id > qui nous permet d’accéder à des ressources spécifiques.</p>
+<p>Je vois sur Swagger que le parameter est de type « integer », je compte donc essayer des id commençant par 0 jusqu’à tomber sur une ressource existante.</p>
+<p>curl -X GET http://challenge01.root-me.org:59088/api/user/0</p>
+<p>Je tombe malheureusement sur une erreur 401 Unauthorized m’expliquant que l’API n’a pas pu vérifier si j’avais le droit d’accéder à la ressource, je me tourne donc vers les endpoints me permettant de créer un utilisateur. Ce que je fais sur le endpoint /api/signup.</p>
+<p>Je m’authentifie par la suite sur le endpoint /api/login avec le nom d’utilisateur et le mot de passe renseignés lors de la création de compte et je peux remarquer que l’api me fournit un cookie de session !</p>
+<p>Je retourne donc à mes essais d’accéder à des utilisateurs existant via leur user_id, en renseignant le cookie que nous venons de recevoir.</p>
+curl -X GET http://challenge01.root-me.org:59088/api/user/0 --cookie "session=< valeur du cookie de session reçu lors du login >"</p>
+<p>Je reçois un message m’indiquant que l’utilisateur n’a pas été trouvé, j’essaye donc avec l’utilisateur ayant le user_id 1.</p>
+curl -X GET http://challenge01.root-me.org:59088/api/user/1 --cookie "session=< valeur du cookie de session reçu lors du login >"</p>
+<p>Bingo ! Le flag est dans le champ note de l’utilisateur avec le user_id 1.</p>
+</div>
+
+<!-- HTTP - Directory Indexing -->
+      <button class="accordion-toggle">HTTP - Directory Indexing</button>
+      <div class="accordion-content">
+  <p>Dans ce challenge le serveur est mal configuré et permet l’indexation des répertoires. En regardant le code source de la page on remarque la présence d’un chemin admin/pass.html En visitant ce fichier on tombe sur un faux indice un rick roll On comprend alors que l’indexation est activée et qu’il est possible de remonter d’un niveau dans l’arborescence pour explorer les autres fichiers disponibles En revenant dans le répertoire admin on observe la liste des fichiers présents et on en ouvre un autre Ce fichier contient directement le mot de passe ce qui permet de valider le challenge.</p>
+</div>
+
+<!-- HTTP - Headers -->
+      <button class="accordion-toggle">HTTP - Headers</button>
+      <div class="accordion-content">
+  <p>Dans ce challenge le serveur utilise un en‑tête HTTP spécifique pour contrôler l’accès En interceptant la requête avec Burp Suite on remarque dans la réponse la présence de :</p>
+<p>Header-RootMe-Admin: none</p>
+<p>Cela indique que le serveur vérifie la valeur de cet en‑tête pour déterminer si l’utilisateur est administrateur ou non Il suffit donc de modifier la requête et d’ajouter.</p>
+<p>Header-RootMe-Admin: true</p>
+</div>
+
+<!-- HTTP - POST -->
+      <button class="accordion-toggle">HTTP - POST</button>
+      <div class="accordion-content">
+  <p>Dans ce challenge le site utilise un formulaire HTML avec la méthode POST pour envoyer un score généré aléatoirement côté client Le code source montre que la valeur du champ score est définie par : </p>
+<p>document.getElementsByName('score')[0].value = Math.floor(Math.random() * 1000000001)</p>
+<p>Cela signifie que le score est calculé par Math.random() puis envoyé au serveur via la requête POST Comme tout se passe côté client il est possible de modifier directement le script ou la valeur envoyée.</p>
+<p>En remplaçant la partie Math.random() par une valeur très élevée comme 99999999999 on force le champ score à contenir un nombre énorme Le formulaire envoie alors ce score au serveur qui l’accepte sans vérification et valide le challenge.</p>
+</div>
+
+<!-- HTTP – Redirection Invalide -->
+      <button class="accordion-toggle">HTTP – Redirection Invalide</button>
+      <div class="accordion-content">
+  <p>Dans ce challenge le serveur effectue une redirection automatique qui masque la page contenant l’information utile En interceptant la requête et la réponse avec Burp Suite on peut stopper le flux et examiner la page intermédiaire avant la redirection.</p>
+</div>
+
+
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Théo OGER — Tous droits réservés</p>
+  </footer>
+
+</body>
+</html>
