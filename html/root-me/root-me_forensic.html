@@ -27,18 +27,20 @@
 
   <main class="veille-container">
 
+    <a href="root-me.html" class="btn-retour">← Retour</a>
+
     <section class="accordion">
 
-      <!-- Fichier supprimé -->
-      <button class="accordion-toggle">Fichier supprimé</button>
+      <!-- Fichier Supprimé -->
+      <button class="accordion-toggle">Fichier Supprimé</button>
       <div class="accordion-content">
   <p>Le challenge consiste à analyser un fichier image disque nommé usb.image plutôt que de chercher à le monter ou à l’exécuter on peut simplement l’ouvrir avec un éditeur de texte comme VS Code ou même un hexadump pour voir son contenu brut.</p>
 <p>En parcourant les lignes on remarque rapidement qu il contient des métadonnées au format RDF et à la ligne 14 on trouve directement l information recherchée le nom du propriétaire sous la balise.</p>
 <p>< rdf:li > Prénom NOM < /rdf:li ></p>
 </div>
 
-<!-- Command Control niveau 2 -->
-      <button class="accordion-toggle">Command Control niveau 2</button>
+<!-- Command Control Niveau 2 -->
+      <button class="accordion-toggle">Command Control Niveau 2</button>
       <div class="accordion-content">
   <p>La solution ici n est pas forcément la plus élégante mais elle reste efficace on utilise simplement la commande strings pour extraire toutes les chaînes lisibles du fichier mémoire ch2.dmp</p>
 <p>strings ch2.dmp > resultat.txt</p>
@@ -47,8 +49,8 @@
 <p>\Device\NetbiosSmbWIN-ETSA91RKCFPWORKGROUP</p>
 </div>
 
-<!-- Oh my grub -->
-      <button class="accordion-toggle">Oh my grub</button>
+<!-- Oh my Grub -->
+      <button class="accordion-toggle">Oh my Grub</button>
       <div class="accordion-content">
   <p>Le principe de ce challenge repose sur la compréhension du rôle de GRUB qui est le programme d’amorçage permettant de choisir sur quel système on va démarrer. GRUB est stocké dans la partition /boot qui est séparée du système d’exploitation et qui, en général, n’est pas chiffrée par les outils de chiffrement de disque. Cela ouvre la possibilité de modifier directement ses paramètres pour influencer le démarrage.</p>
 <p>Lors du boot, quand on arrive sur l’écran GRUB, il suffit d’appuyer sur la touche e pour éditer les options de lancement. On repère la ligne qui contient les paramètres du noyau et c’est là qu’on intervient.</p>

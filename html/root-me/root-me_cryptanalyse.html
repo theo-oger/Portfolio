@@ -27,6 +27,8 @@
 
   <main class="veille-container">
 
+    <a href="root-me.html" class="btn-retour">← Retour</a>
+
     <section class="accordion">
 
       <!-- Encodage UU -->
@@ -105,8 +107,8 @@
 <p>Ce qui donne le résultat attendu et valide le challenge.</p>
       </div>
 
-      <!-- Chiffrement par décalage -->
-      <button class="accordion-toggle">Chiffrement par décalage</button>
+      <!-- Chiffrement par Décalage -->
+      <button class="accordion-toggle">Chiffrement par Décalage</button>
       <div class="accordion-content">
         <p>Ce challenge est une variante du chiffre de César mais appliqué non pas seulement aux 26 lettres de l alphabet mais à l ensemble des valeurs possibles d un octet ce qui élargit considérablement le champ des rotations possibles.</p>
 <p>Le site dcode fr permet de résoudre ça très facilement en lançant un bruteforce sur tous les décalages possibles on colle la chaîne donnée.</p>
@@ -125,8 +127,8 @@
 <p>Le programme va tester les entrées de la wordlist contre le hash MD5crypt et finir par trouver la correspondance ce qui valide le challenge et montre que même avec un salt le mot de passe reste vulnérable si la wordlist contient la bonne valeur.</p>
       </div>
 
-      <!-- Décomposition pixelisée -->
-      <button class="accordion-toggle">Décomposition pixelisée</button>
+      <!-- Décomposition Pixelisée -->
+      <button class="accordion-toggle">Décomposition Pixelisée</button>
       <div class="accordion-content">
         <p>Dès le départ l indice nous met sur la voie ce n est pas du binaire mais une représentation graphique avec des couleurs le 0 correspond au blanc #FFFFFF et le 1 au noir #000000.</p>
 <p>On récupère donc la suite de nombres donnée par le challenge et plutôt que de chercher à l interpréter comme du texte ou un encodage on la traduit directement en pixels chaque chiffre devient une couleur et on recompose l image.</p>
@@ -141,8 +143,8 @@
 <p>Cette commande génère un hash correspondant au mot de passe du zip.</p>
       </div>
 
-      <!-- Substitution monoalphabétique César -->
-      <button class="accordion-toggle">Substitution monoalphabétique César</button>
+      <!-- Substitution Monoalphabétique César -->
+      <button class="accordion-toggle">Substitution Monoalphabétique César</button>
       <div class="accordion-content">
         <p>Le titre du challenge peut induire en erreur car on pense directement au chiffre de César classique mais ici il s agit d une substitution monoalphabétique ce qui veut dire qu une lettre est remplacée par une autre selon un alphabet de correspondance défini et pas simplement par un décalage fixe.</p>
 <p>On comprend donc que chaque caractère du texte chiffré correspond à une lettre différente de l alphabet clair et qu il faut retrouver la table de correspondance pour reconstituer le message.</p>
@@ -152,8 +154,8 @@
 
       </div>
 
-      <!-- Substitution polyalphabétique Vigenère -->
-      <button class="accordion-toggle">Substitution polyalphabétique Vigenère</button>
+      <!-- Substitution Polyalphabétique Vigenère -->
+      <button class="accordion-toggle">Substitution Polyalphabétique Vigenère</button>
       <div class="accordion-content">
         <p>Le titre du challenge annonce directement la couleur on est sur un chiffrement de type Vigenère qui est une substitution polyalphabétique c est à dire qu au lieu d utiliser une seule clé de décalage comme pour César on utilise une clé composée de plusieurs lettres chaque lettre de la clé détermine un décalage différent et le texte est chiffré en boucle avec cette clé.</p>
 <p>Pour comprendre un peu mieux le fonctionnement on peut se renseigner rapidement sur le principe du Vigenère puis passer à la pratique en utilisant un outil en ligne de décryptage par exemple le site mygeocachingprofile qui propose un décodeur dédié on colle le texte chiffré et on lance l analyse.</p>

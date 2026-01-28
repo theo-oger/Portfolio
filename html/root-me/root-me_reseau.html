@@ -27,6 +27,8 @@
 
   <main class="veille-container">
 
+    <a href="root-me.html" class="btn-retour">← Retour</a>
+
     <section class="accordion">
 
       <!-- FTP- Authentification -->
@@ -61,8 +63,8 @@
 <p>Le principe est simple Basic Auth envoie Authorization: Basic <chaine_base64> où la chaîne correspond à username:password encodé en Base64 il suffit donc de copier cette valeur et de la décoder pour obtenir en clair le couple identifiant mot de passe.</p>
 </div>
 
-<!-- Bluetooth fichier inconnu -->
-      <button class="accordion-toggle">Bluetooth fichier inconnu</button>
+<!-- Bluetooth Fichier Inconnu -->
+      <button class="accordion-toggle">Bluetooth Fichier Inconnu</button>
       <div class="accordion-content">
   <p>Le challenge commence par une vérification rapide avec la commande file sur le fichier ch18.bin qui nous indique qu’il s’agit bien d’un fichier BTSnoop, format utilisé pour capturer des échanges Bluetooth. L’énoncé confirme cette information.</p>
 <p>Comme Wireshark gère nativement ce type de capture, on ouvre directement le fichier avec Wireshark. On peut alors visualiser la séquence d’échanges entre l’ordinateur et le téléphone.</p>
@@ -97,8 +99,8 @@
       <p>- ch11.challenge01.root-me.org. est la zone dont on veut récupérer le contenu.</p>
 </div>
 
-<!-- IP time to live -->
-      <button class="accordion-toggle">IP time to live</button>
+<!-- IP Time to Live -->
+      <button class="accordion-toggle">IP Time to Live</button>
       <div class="accordion-content">
   <p>Dans ce challenge, la solution est effectivement très simple : en ouvrant la capture réseau avec Wireshark, on peut directement observer le champ TTL (Time To Live) dans chaque trame IP.</p>
 <p>Le TTL indique le nombre de sauts (hops) qu’un paquet peut effectuer avant d’être détruit. Chaque routeur traversé décrémente cette valeur de 1. Lorsqu’elle atteint zéro, le paquet est abandonné.</p>
@@ -109,8 +111,8 @@
 <p>On obtient immédiatement la valeur du TTL, ce qui donne la réponse attendue pour le challenge.</p>
 </div>
 
-<!-- LDAP null bind -->
-      <button class="accordion-toggle">LDAP null bind</button>
+<!-- LDAP Null Bind -->
+      <button class="accordion-toggle">LDAP Null Bind</button>
       <div class="accordion-content">
   <p>Dans ce challenge, l’idée est d’utiliser l’outil ldapsearch pour interroger un annuaire LDAP mal configuré. La commande que tu as utilisée est :</p>
 <p>Code : ldapsearch -H ldap://challenge01.root-me.org:54013 -x -b "uid=anonymous,ou=People,dc=challenge01,dc=root-me,dc=org"</p>
@@ -142,8 +144,8 @@
 <p>Pas besoin de casser quoi que ce soit, pas besoin de bruteforce ou d’outils compliqués : le mot de passe était là, sous mes yeux.</p>
 </div>
 
-<!-- Trame altérées -->
-      <button class="accordion-toggle">Trame altérées</button>
+<!-- Trame Altérées -->
+      <button class="accordion-toggle">Trame Altérées</button>
       <div class="accordion-content">
   <p>Si on décode la trame Ethernet à trous, on se rend compte que l’on nous demande pour commencer deux fins d’adresse MAC (du VMWare)</p>
 <p>0050 569e 7b ?? SRC</p>

@@ -208,3 +208,40 @@ footer p {
   }
 }
 
+/* === BOUTON RETOUR === */
+.btn-retour {
+  display: inline-block;
+  margin-bottom: 25px;
+  padding: 10px 20px;
+  border: 2px solid #ffcc66;
+  border-radius: 8px;
+  color: #ffcc66;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-retour:hover {
+  background: #ffcc66;
+  color: #111;
+  transform: translateX(-5px);
+}
+
+
+/* === AFFICHAGE CODE === */
+pre {
+  background: #222;
+  border-left: 4px solid #86BBD8;
+  padding: 200px;
+  margin: 15px 0;
+  border-radius: 8px;
+  overflow-x: auto;
+  text-align: left; 
+}
+
+code {
+  font-family: "Fira Code", monospace;
+  color: #ffcc66;
+  font-size: 0.95rem;
+  white-space: pre;
+}

@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="../../css/root-me_pages.css" />
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
+<script src="../../js/veille.js"></script>
+
 <body>
 
   <!-- Header -->
@@ -23,8 +25,109 @@
     </nav>
   </header>
 
-  <main>
-    
+  <main class="veille-container">
+
+    <a href="root-me.html" class="btn-retour">← Retour</a>
+
+    <section class="accordion">
+
+      <!-- Chaîne Encodée -->
+      <button class="accordion-toggle">Chaîne Encodée</button>
+      <div class="accordion-content">
+  <pre><code>
+import socket 
+import re
+import codecs
+
+hote = "challenge01.root-me.org"
+port = 52021
+
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+client.connect((hote, port))
+
+donnees = client.recv(2048)
+message = donnees.decode('utf-8')
+print (message)
+
+resultat = re.findall(r"'(.*?)'", message)
+txt = resultat[0]
+
+resultat = codecs.decode(txt, 'rot_13')
+print(resultat)
+
+client.send((resultat + '\n').encode('utf-8'))
+reponse = client.recv(2048)
+print(reponse.decode('utf-8'))
+  </code></pre>
+</div>
+
+<!-- La Roue Romaine -->
+      <button class="accordion-toggle">La Roue Romaine</button>
+      <div class="accordion-content">
+  <pre><code>
+import socket 
+import re
+import codecs
+import zlib
+import gzip
+import base64
+
+hote = "challenge01.root-me.org"
+port = 52022
+
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+client.connect((hote, port))
+
+donnees = client.recv(2048)
+message = donnees.decode('utf-8')
+print (message)
+
+resultat = re.findall(r"'(.*?)'", message)
+txt = resultat[0]
+print (txt)
+
+print zcomp = zlib_decompress_from_base64_string(txt)
+  </code></pre>
+</div>
+
+<!-- Retour au Collège -->
+      <button class="accordion-toggle">Retour au Collège</button>
+      <div class="accordion-content">
+  <pre><code>
+import socket 
+import math
+import re
+import struct
+
+hote = "challenge01.root-me.org"
+port = 52002
+
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+client.connect((hote, port))
+
+donnees = client.recv(2048)
+message = donnees.decode('utf-8')
+print (message)
+chiffres = re.findall(r'\d+', message)
+print (chiffres)
+
+if len(chiffres) >= 2:
+    nombre1 = int(chiffres[-2])
+    nombre2 = int(chiffres[-1])
+
+r_c = math.sqrt(nombre1)
+nombre3 = r_c*nombre2
+resultat = format(nombre3,'.2f')
+
+
+client.send((resultat + '\n').encode('utf-8'))
+reponse = client.recv(2048)
+print(reponse.decode('utf-8'))
+  </code></pre>
+</div>
+
+
+    </section>
   </main>
 
   <footer>
