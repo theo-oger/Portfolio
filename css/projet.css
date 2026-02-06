@@ -200,9 +200,28 @@ footer {
   margin-top: 80px;
 }
 
-/* ====== RESPONSIVE ====== */
+
 @media (max-width: 768px) {
   nav ul {
     justify-content: center;
   }
+}
+
+.cv-button {
+  display: inline-block;
+  margin: 15px auto 0; 
+  padding: 12px 24px;
+  border: 2px solid #ffcc66;
+  color: #ffcc66;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.3s;
+  text-decoration: none;
+  text-align: center;
+}
+
+.cv-button:hover {
+  background: #ffcc66;
+  color: #111;
+  transform: scale(1.05);
 }

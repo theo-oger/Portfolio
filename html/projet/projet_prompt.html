@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet Bibliothèque de Prompts IA - Portfolio Théo OGER</title>
+  <link rel="stylesheet" href="../../css/projet_general.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="../Acceuil.html">Accueil</a></li>
+        <li><a href="../apropos.html">À propos</a></li>
+        <li><a href="../projets.html" class="active">Projets</a></li>
+        <li><a href="../veille.html">Veille</a></li>
+        <li><a href="../root-me/root-me.html">Root Me</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenu principal -->
+  <main class="projet-container">
+    <section class="fade-in">
+      <h1>Projet Bibliothèque de Prompts IA</h1>
+
+      <p class="intro">
+        Ce projet a été réalisé dans le cadre d'un <strong>stage de BTS</strong> au sein de la <strong>CNAV (Caisse Nationale d'Assurance Vieillesse)</strong>.
+        L'objectif était de créer une <strong>application web interne</strong> permettant aux collaborateurs de la Direction des Services Informatiques (DIE) 
+        d'accéder à une bibliothèque centralisée de <strong>prompts optimisés pour l'utilisation d'intelligences artificielles</strong>.
+      </p>
+
+      <p>
+        Face au constat que la majorité des utilisateurs ne savent pas comment utiliser correctement une IA, 
+        cette application propose des <strong>prompts déjà conçus, testés et organisés</strong> afin de guider les utilisateurs 
+        et d'améliorer la qualité de leurs interactions avec les outils d'IA.
+      </p>
+    </section>
+
+    <section class="fade-in">
+      <h2>Cahier des charges</h2>
+      <p>
+        Le projet s'est déroulé sur une période de <strong>trois semaines</strong> de stage.
+        Afin d'organiser mon travail et de définir précisément les besoins, j'ai commencé par la réalisation d'un 
+        <strong>cahier des charges complet</strong> détaillant le contexte, les objectifs, les fonctionnalités, 
+        l'architecture technique et le planning prévisionnel du projet.
+      </p>
+
+      <a href="../../pdf/Cahier_des_Charges_Bibliotheque_Prompts_IA.pdf" target="_blank" class="btn-rapport">Télécharger le cahier des charges</a>
+    </section>
+
+    <section class="fade-in">
+      <h2>Diagramme de Gantt</h2>
+      <p>
+        Pour planifier les différentes phases du développement et suivre ma progression tout au long du stage, 
+        j'ai créé un <strong>diagramme de Gantt</strong> permettant d'évaluer le temps alloué à chaque étape : 
+        conception, développement du socle technique, implémentation des fonctionnalités, tests et déploiement.
+      </p>
+
+      <a href="../../pdf/diagramme_ganttprompt.xlsx" target="_blank" class="btn-rapport">Télécharger le diagramme de Gantt</a>
+    </section>
+
+    <section class="fade-in">
+      <h2>Contexte et problématique</h2>
+      <p>
+        La CNAV s'inscrit dans une démarche de transformation numérique et d'adoption des technologies émergentes, 
+        notamment l'intelligence artificielle. Cependant, plusieurs difficultés ont été observées :
+      </p>
+      <ul>
+        <li>Méconnaissance des techniques de prompting efficace par la majorité des utilisateurs</li>
+        <li>Résultats insatisfaisants générant frustration et abandon des outils d'IA</li>
+        <li>Absence de référentiel commun de bonnes pratiques</li>
+        <li>Disparité dans la qualité des interactions selon les collaborateurs</li>
+      </ul>
+      <p>
+        L'application répond à cette problématique en centralisant des prompts testés et validés, 
+        organisés selon différents <strong>frameworks de prompting</strong> (PROMPT, RACE, COSTAR, etc.) 
+        et classés par <strong>catégories thématiques</strong>.
+      </p>
+    </section>
+
+    <section class="fade-in">
+      <h2>Fonctionnalités développées</h2>
+      <p>
+        L'application propose plusieurs modules fonctionnels complémentaires :
+      </p>
+      
+      <h3>Module de consultation</h3>
+      <p>
+        Affichage de l'ensemble des prompts disponibles sous forme de cartes avec toutes les informations pertinentes 
+        (titre, description, framework, catégorie, nombre de likes). 
+        Chaque prompt dispose d'un <strong>bouton de copie rapide</strong> permettant de le copier dans le presse-papier en un clic.
+      </p>
+
+      <h3>Module de recherche et filtrage</h3>
+      <p>
+        Barre de recherche textuelle et système de filtrage avancé permettant de trier les prompts par :
+      </p>
+      <ul>
+        <li>Framework de prompting (PROMPT, RACE, COSTAR, etc.)</li>
+        <li>Catégorie thématique (Rédaction, Analyse, Code, etc.)</li>
+        <li>Sous-catégorie pour une granularité fine</li>
+        <li>Popularité (nombre de likes décroissant)</li>
+      </ul>
+
+      <h3>Système d'interaction</h3>
+      <p>
+        Chaque utilisateur peut <strong>liker</strong> les prompts qu'il trouve pertinents, 
+        permettant ainsi d'identifier les prompts les plus populaires et utiles pour la communauté.
+      </p>
+
+      <h3>Création de prompts</h3>
+      <p>
+        Les utilisateurs peuvent contribuer en créant de nouveaux prompts via un formulaire guidé. 
+        Le système génère automatiquement le <strong>format approprié selon le framework choisi</strong>, 
+        facilitant ainsi la création de prompts structurés et efficaces.
+      </p>
+
+      <h3>Administration de la taxonomie</h3>
+      <p>
+        Interface d'administration permettant la gestion complète (CRUD) des frameworks, catégories et sous-catégories, 
+        assurant ainsi la flexibilité et l'évolutivité de l'organisation des prompts.
+      </p>
+    </section>
+ 
+    <section>
+      <h2>Organisation du projet</h2>
+      <p>
+        <strong>Développeur :</strong> Théo OGER (Stagiaire BTS)
+        <br>
+        <strong>Encadrant :</strong> Grégory Vincent - Direction des Services Informatiques (DIE)
+        <br>
+        <strong>Durée :</strong> 8 semaines de stage
+        <br>
+        <strong>Organisme :</strong> CNAV (Caisse Nationale d'Assurance Vieillesse)
+      </p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Théo OGER — Tous droits réservés</p>
+  </footer>
+
+</body>
+</html>

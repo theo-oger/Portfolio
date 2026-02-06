@@ -180,18 +180,25 @@ section {
 
 .competences {
   display: flex;
-  gap: 50px;
-  animation: scrollLoop 30s linear infinite;
+  gap: 10px;
+  animation: scrollLoop 30s linear infinite; /* Augmenté de 10s à 30s */
+  width: max-content; /* Important : force le conteneur à prendre toute la largeur nécessaire */
 }
 
 .competences img {
   height: 100px;
+  flex-shrink: 0; /* Empêche les images de rétrécir */
   filter: brightness(0.9);
   transition: transform 0.3s;
 }
 
 .competences img:hover {
   transform: scale(1.15);
+  animation-play-state: paused; /* Pause l'animation au survol */
+}
+
+.competences-wrapper:hover .competences {
+  animation-play-state: paused; /* Pause l'animation au survol du wrapper */
 }
 
 @keyframes scrollLoop {
